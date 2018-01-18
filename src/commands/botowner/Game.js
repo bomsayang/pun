@@ -22,7 +22,7 @@ class Game extends Command {
   }
 
   async run(msg, args, text) {
-    await msg.client.user.setGame(args.game, 'https://twitch.tv/lumitedubbz');
+    await msg.client.user.setActivity(args.game, {url: 'https://twitch.tv/lumitedubbz', type: 'STREAMING'});
 
     return text.reply('successfully set my game to ' + args.game + '! To change it again, type ' + msg.client.config.prefix + 'game command.');
   }

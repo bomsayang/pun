@@ -1,0 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+body {
+    -webkit-animation: pulse 10s infinite;
+    animation: pulse 10s infinite;
+}
+
+@-webkit-keyframes pulse {
+    0% {background:#f44336}
+    25% {background:#e91e63}
+    50% {background:#9c2780}
+    75% {background:#673ab7}
+    100% {background:#f44336}
+}
+
+@keyframes pulse {
+    0% {background:#f44336}
+    25% {background:#e91e63}
+    50% {background:#9c2780}
+    75% {background:#673ab7}
+    100% {background:#f44336}
+}
+
+#title {
+    text-align: center;
+    color: aliceblue;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    text-decoration: underline;
+    font-family: 'Open Sans', 'sans-serif';
+    padding-bottom: 0px;
+    padding-top: 0px
+}
+
+#navLink {
+    padding-left: 39.2%;
+    color: aliceblue;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    font-family: 'Open Sans', 'sans-serif';
+    padding-bottom: 0px;
+    padding-top: 0px
+}
+
+#navLink_noPad {
+    color: aliceblue;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    font-family: 'Open Sans', 'sans-serif';
+    padding-bottom: 0px;
+    padding-top: 0px
+}
+
+#forkLink {
+    padding-left: 46.3%;
+    color: aliceblue;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    font-family: 'Open Sans', 'sans-serif';
+    padding-bottom: 0px;
+    padding-top: 0px
+}
+
+#pageTitle {
+    text-align: left;
+    color: aliceblue;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    text-decoration: underline;
+    font-family: 'Open Sans', 'sans-serif';
+    padding-bottom: 0px;
+    padding-top: 0px
+}
+
+#pageContent {
+    color: aliceblue;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    font-family: 'Open Sans', 'sans-serif';
+    padding-bottom: 0px;
+    padding-top: 0px
+}

@@ -1,5 +1,4 @@
 const { Precondition, PreconditionResult } = require('patron.js');
-const credentials = require('../../../credentials.json');
 
 class BotOwner extends Precondition {
   constructor() {
@@ -9,7 +8,7 @@ class BotOwner extends Precondition {
   }
 
   run(cmd, msg) {
-    if (credentials.botOwners.includes(msg.author.id) === false) {
+    if (process.env.BOTOWNERS.includes(msg.author.id) === false) {
       return PreconditionResult.fromError(cmd, 'You must be a bot owner in order to use this command.');
     }
 

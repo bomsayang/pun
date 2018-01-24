@@ -5,14 +5,6 @@ Visit the <a href="https://github.com/LumiteDubbz/Pixel/wiki">Wiki</a> to learn 
 
 <a href="https://lumitedubbz.github.io/Pixel/">Full Documentation</a>
 
-# Developers
-
-<a href="https://twitter.com/lumitedubbz">LumiteDubbz</a><br>
-<a href="https://github.com/assley">Assley</a><br>
-<a href="https://github.com/dafscode">Daf</a> quit developing Pixel, but credit to him for some commands. He is also the hosting manager, so if the bot is offline, ping him!<br>
-<a href="https://github.com/Marathxnz">Luner</a><br>
-
-
 # Support
 
 This can also be found on the <a href="https://github.com/LumiteDubbz/Pixel/wiki">Wiki</a>, but oh well, I'll put it here as well.

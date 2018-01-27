@@ -1,5 +1,5 @@
 const { Precondition, PreconditionResult } = require('patron.js');
-const credentials = require('../../credentials.json');
+const credentials = require('./../../../credentials.json');
 
 class BotOwner extends Precondition {
   constructor() {

@@ -21,7 +21,7 @@ class XpService {
       if (msg.dbUser.xp + utility.Constants.xp.xpPerMessage > neededXp) {
         const newDbUser = await msg.client.db.userRepo.modifyLevel(msg.dbGuild, msg.member, 1);
         await msg.client.db.userRepo.modifySkillPoints(msg.dbGuild, msg.member, 2);
-        await utility.Text.createEmbed(msg.channel, utility.String.boldify(msg.author.tag) + ', Congrats you\'ve ' + (newDbUser.level === 20 ? 'achieved the max level we currently have' : 'advanced to level ' + newDbUser.level) + '!');
+        await utility.Text.createEmbed(msg.author, utility.String.boldify(msg.author.tag) + ', Congratulations, you\'ve ' + (newDbUser.level === 20 ? 'achieved the maximum level we currently have' : 'advanced to level ' + newDbUser.level) + '!');
       }
 
       return msg.client.db.userRepo.modifyXP(msg.dbGuild, msg.member, utility.Constants.xp.xpPerMessage);

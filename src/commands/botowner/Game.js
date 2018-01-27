@@ -1,5 +1,6 @@
 const { Command, Argument } = require('patron.js');
 const utility = require('../../utility');
+const client = require('../../structures/Client.js');
 
 class Game extends Command {
   constructor() {
@@ -22,9 +23,21 @@ class Game extends Command {
   }
 
   async run(msg, args, text) {
-    await msg.client.user.setGame(args.game, 'https://twitch.tv/lumitedubbz');
+    await msg.client.user.setActivity(args.game, {url: 'https://twitch.tv/lumitedubbz', type: 'STREAMING'});
+    
+    let prefix = '';
 
-    return text.reply('successfully set my game to ' + args.game + '! To change it again, type ' + msg.client.config.prefix + 'game command.');
+    if (msg.guild !== null) {
+      msg.dbGuild = await client.db.guildRepo.getGuild(msg.guild.id);
+      msg.dbUser = await client.db.userRepo.getUser(msg.author.id, msg.guild.id);
+      msg.globalDbUser = await client.db.globalUserRepo.getUser(msg.author.id);
+  
+      prefix = msg.dbGuild.settings.prefix;
+    } else {
+      prefix = Constants.defaultPrefix;
+    }
+
+    return text.reply('successfully set my game to ' + args.game + '! To change it again, run the `' + prefix + 'game` command.');  
   }
 }
 

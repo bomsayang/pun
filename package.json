@@ -29,11 +29,11 @@
   "homepage": "https://github.com/lumitedubbz/pixel#readme",
   "dependencies": {
     "discord.js": "^11.3.0",
+    "express": "^4.16.2",
     "mongodb": "^3.0.1",
     "path": "^0.12.7",
-    "patron.js": "^2.5.5",
-    "snekfetch": "^3.6.1",
-    "express": "^4.16.2",
-    "rebirth": "^1.0.3"
+    "patron.js": "github:vim2meta/patron.js",
+    "rebirth": "^1.0.3",
+    "snekfetch": "^3.6.1"
   }
 }

@@ -1,6 +1,7 @@
 const { Client: DiscordJSClient } = require('discord.js');
 const Constants = require('../utility/Constants.js');
 const Database = require('../database/Database.js');
+const credentials = require('../credentials.json');
 
 class Client extends DiscordJSClient {
   constructor(config) {
@@ -19,7 +20,7 @@ class Client extends DiscordJSClient {
   }
 
   init() {
-    return this.login(process.env.TOKEN).catch(err => console.error(err));
+    return this.login(credentials.token).catch(err => console.error(err));
   }
 }
 

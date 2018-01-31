@@ -1,5 +1,6 @@
 const client = require('../structures/Client.js');
+const logger = require('./../utility/Logger.js');
 
 client.on('disconnect', () => {
-  console.log('Pixel has disconnected.');
+  logger.log(2, 'Pixel has disconnected.');
 });

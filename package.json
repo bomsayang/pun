@@ -21,19 +21,20 @@
     "pixel",
     "patron.js"
   ],
-  "author": "LumiteDubbz#7496",
+  "author": "Lumite#1234",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lumitedubbz/pixel/issues"
   },
   "homepage": "https://github.com/lumitedubbz/pixel#readme",
   "dependencies": {
+    "colors": "^1.1.2",
     "discord.js": "^11.3.0",
     "express": "^4.16.2",
+    "moment": "^2.20.1",
     "mongodb": "^3.0.1",
     "path": "^0.12.7",
     "patron.js": "github:vim2meta/patron.js",
-    "rebirth": "^1.0.3",
     "snekfetch": "^3.6.1"
   }
 }

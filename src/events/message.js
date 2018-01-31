@@ -5,6 +5,7 @@ const Text = require('../utility/Text.js');
 const client = require('../structures/Client.js');
 const handler = new Handler(client.registry);
 const XpService = require('../services/XpService.js');
+const logger = require('./../utility/Logger.js');
 
 client.on('message', async msg => {
   if (msg.author.bot) {
@@ -51,7 +52,7 @@ client.on('message', async msg => {
         } else {
           message = result.errorReason;
 
-          console.error(result.error);
+          logger.log(3, result.error);
         }
         break;
       case CommandError.InvalidArgCount:

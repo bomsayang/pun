@@ -3,5 +3,6 @@ module.exports = {
   Number: require('./Number.js'),
   Random: require('./Random.js'),
   String: require('./String.js'),
-  Text: require('./Text.js')
+  Text: require('./Text.js'),
+  Logger: require('./Logger.js')
 };

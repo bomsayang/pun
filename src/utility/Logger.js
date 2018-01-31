@@ -1,29 +1,15 @@
 const colors = require('colors');
+const moment = require('moment');
 
 class Logger {
-    constructor(logSeverity, content) {
-        function log() {
-            colors.setTheme({
-                debug: 'blue',
-                warn: 'yellow',
-                error: 'red'
-            });
 
-            if (logSeverity == 1) {
-                console.log('[Severity: DEBUG] ', content.debug)
-            }
+    static log(logSeverity, content) {
+        let completed = '';
+        const date = moment().format('LTS');
+        const logBuilder = (logSeverity === 1) ? (completed = (date + ': ' + content.bold.blue)) : (logSeverity === 2) ? (completed = (date + ': ' + content.bold.yellow)) : ((logSeverity === 3) ? (completed = (date + ': ' + content.bold.red)) : completed=(date + ': ' + 'Incorrect log severity level. Use 1, 2 or 3 for DEBUG, WARN or ERR respectively.'.red));
 
-            if (logSeverity == 2) {
-                return console.log('[Severity: WARN] ', content.warn)
-            }
-
-            if (logSeverity == 3) {
-                return console.log('[Severity: ERROR] ', content.error)
-            }
-
-            else {
-                return console.log('Error: You must specify a correct logSeverity level (1, 2 or 3).'.error)
-            }
-        }
+        console.log(completed);
     }
 }
+
+module.exports = Logger;

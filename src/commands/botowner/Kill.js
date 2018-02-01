@@ -2,7 +2,7 @@ const { Command, Argument } = require('patron.js');
 const { inspect } = require('util');
 const logger = require('./../../utility/Logger.js');
 
-class Eval extends Command {
+class Kill extends Command {
     constructor() {
         super({
             names: ['kill', 'killbot', 'end'],

@@ -3,7 +3,7 @@ const ModerationService = require('../../services/ModerationService.js');
 const utility = require('../../utility/');
 const Discord = require('discord.js');
 
-class CreatePoll extends Command {
+class QuickPoll extends Command {
   constructor() {
     super({
       names: ['quickpoll', 'makequickpoll', 'qp'],
@@ -22,4 +22,4 @@ class CreatePoll extends Command {
   }
 }
 
-module.exports = new CreatePoll();
+module.exports = new QuickPoll();

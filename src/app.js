@@ -13,5 +13,17 @@ client.db.init(credentials.mongoConnectionURL);
 client.init();
 
 process.on('unhandledRejection', err => {
-  logger.log(1, 'Unhandled Rejection:\n' + err.stack);
+  logger.log(2, 'Unhandled Rejection:\n' + err.stack);
+});
+
+process.on('exit', code => {
+  logger.log(2, `About to exit the application with the code "${code}`);
+});
+
+process.on('uncaughtException', err => {
+  logger.log(2, 'Uncaught Exception:\n' + err.stack);
+});
+
+process.on('warning', warning => {
+  logger.log(2, 'Warning:\n' + warning.stack);
 });

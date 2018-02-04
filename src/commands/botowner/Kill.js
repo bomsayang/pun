@@ -1,6 +1,6 @@
 const { Command, Argument } = require('patron.js');
 const { inspect } = require('util');
-const logger = require('./../../utility/Logger.js');
+const logger = require('cus-log');
 
 class Kill extends Command {
     constructor() {

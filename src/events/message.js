@@ -5,7 +5,7 @@ const Text = require('../utility/Text.js');
 const client = require('../structures/Client.js');
 const handler = new Handler(client.registry);
 const XpService = require('../services/XpService.js');
-const logger = require('./../utility/Logger.js');
+const logger = require('cus-log');
 
 client.on('message', async msg => {
   if (msg.author.bot) {
@@ -63,6 +63,7 @@ client.on('message', async msg => {
         break;
     }
 
+    await logger.error(message);
     return text.sendError(message);
   }
 });

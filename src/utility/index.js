@@ -4,5 +4,4 @@ module.exports = {
   Random: require('./Random.js'),
   String: require('./String.js'),
   Text: require('./Text.js'),
-  Logger: require('./Logger.js')
 };

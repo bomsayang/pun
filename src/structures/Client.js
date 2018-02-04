@@ -12,7 +12,7 @@ class Client extends DiscordJSClient {
       messageCacheLifetime: 10,
       messageSweepInterval: 1800,
       disabledEvents: Constants.disabledEvents,
-      token: process.env.TOKEN
+      token: credentials.token
     });
 
     this.config = config;

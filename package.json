@@ -29,12 +29,13 @@
   "homepage": "https://github.com/lumitedubbz/pixel#readme",
   "dependencies": {
     "colors": "^1.1.2",
+    "cus-log": "github:LumiteDubbz/cus-log",
     "discord.js": "^11.3.0",
     "express": "^4.16.2",
     "moment": "^2.20.1",
     "mongodb": "^3.0.1",
     "path": "^0.12.7",
-    "patron.js": "github:vim2meta/patron.js",
+    "patron.js": "github:vim2meta/patron.js#1b9193a",
     "snekfetch": "^3.6.1"
   }
 }

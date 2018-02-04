@@ -3,7 +3,7 @@ const { join } = require('path');
 const client = require('./structures/Client.js');
 const registry = require('./structures/Registry.js');
 const credentials = require('./../credentials.json');
-const logger = require('./utility/Logger.js');
+const logger = require('cus-log');
 
 client.registry = registry;
 RequireAll(join(__dirname, 'events'));

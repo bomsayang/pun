@@ -5,7 +5,8 @@ class Guild {
     this.guildId = guildId;
     this.roles = {
       mod: [],
-      muted: null
+      muted: null,
+      auto: null
     };
 
     this.channels = {

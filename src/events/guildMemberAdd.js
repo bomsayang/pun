@@ -3,10 +3,15 @@ const Text = require('../utility/Text.js');
 
 client.on('guildMemberAdd', async member => {
   const dbGuild = await client.db.guildRepo.getGuild(member.guild.id);
+  console.log(member.guild.roles.get(dbGuild.roles.auto));
 
   if (dbGuild.settings.welcomeMessage !== null) {
     const text = new Text();
 
-    return text.tryDM(member.user, dbGuild.settings.welcomeMessage);
+    await text.tryDM(member.user, dbGuild.settings.welcomeMessage);
+  }
+  
+  if (dbGuild.roles.auto !== null) {
+    return member.addRole(dbGuild.roles.auto);
   }
 });

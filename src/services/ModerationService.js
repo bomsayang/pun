@@ -21,7 +21,7 @@ class ModerationService {
   }
 
   tryInformUser(guild, author, action, user, reason = '') {
-    return text.createEmbed(user, utility.String.boldify(author.tag) + ' has ' + action + ' you' + (utility.String.isNullOrWhiteSpace(reason) ? '.' : ' for the following reason: ' + reason + '.'), { footer: { text: guild.name, icon: guild.iconURL }});
+    return text.createEmbed(user, utility.String.boldify(author.tag) + ' has ' + action + ' you' + (utility.String.isNullOrWhiteSpace(reason) ? '.' : ' for the following reason: ' + reason + '.'), { footer: { text: guild.name, icon: guild.iconURL } });
   }
 
   async tryModLog(dbGuild, guild, action, color, reason = '', moderator = null, user = null, extraInfoType = '', extraInfo = '') {
@@ -55,7 +55,7 @@ class ModerationService {
     let description = '**Action:** ' + action + '\n';
 
     if (utility.String.isNullOrWhiteSpace(extraInfoType) === false) {
-      description += '**'+ extraInfoType + ':** ' + extraInfo + '\n';
+      description += '**' + extraInfoType + ':** ' + extraInfo + '\n';
     }
 
     if (user !== null) {
@@ -68,6 +68,24 @@ class ModerationService {
 
     await db.guildRepo.upsertGuild(dbGuild.guildId, { $inc: { 'misc.caseNumber': 1 } });
     return text.createEmbed(channel, description, options);
+  }
+
+  async spamMute(msg) {
+    const lastMessage = this.messages.get(msg.author.id);
+    const isMessageCooldownOver = lastMessage === undefined || Date.now() - lastMessage > utility.Constants.moderation.defaultMessageCooldown;
+
+    if (!isMessageCooldownOver) {
+      const role = msg.guild.roles.get(msg.dbGuild.roles.muted);
+
+      if (role === undefined) {
+        return text.sendError('The set muted role has been deleted. Please set a new one with the `' + msg.dbGuild.settings.prefix + 'setmute Role` command.');
+      }
+
+      await msg.author.addRole(role);
+      await ModerationService.tryInformUser(msg.guild, msg.author, 'muted', msg.author, 'automatic mute for spam');
+      await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Mute', utility.Constants.embedColors.mute, 'automatic mute for spam', msg.author, null, 'Length', '1 hour.');
+      return msg.client.db.muteRepo.insertMute(mag.author.id, msg.guild.id, utility.Number.hoursToMs(1));
+    }
   }
 }
 

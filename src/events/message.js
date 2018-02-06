@@ -6,6 +6,7 @@ const client = require('../structures/Client.js');
 const handler = new Handler(client.registry);
 const XpService = require('../services/XpService.js');
 const logger = require('cus-log');
+const { spamMute } = require('../services/ModerationService.js');
 
 client.on('message', async msg => {
   if (msg.author.bot) {
@@ -27,6 +28,8 @@ client.on('message', async msg => {
   if (!msg.content.startsWith(prefix)) {
     return msg.guild !== null ? XpService.giveXp(msg) & XpService.giveGlobalXp(msg) : null;
   }
+
+  spamMute();
 
   const text = new Text(msg);
   const result = await handler.run(msg, prefix, text);

@@ -82,6 +82,10 @@ class Constants {
       globalXpPerMessage: 1
     };
 
+    this.moderation = {
+      defaultMessageCooldown: 2000
+    }
+
     this.skills = ['magic', 'damage', 'healing', 'craftmanship', 'intelligence', 'haste'];
 
     this.levels = [

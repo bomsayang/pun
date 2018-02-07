@@ -38,7 +38,7 @@ class Help extends Command {
         allCommands += '\n';
       }
 
-      const prefix = msg.client.dbGuild.prefix;
+      const prefix = msg.dbGuild.settings.prefix;
       return text.send(allCommands + "\n\nThe command prefix for this guild is " + prefix + ".\n\nUse `" + prefix + "help <command>` to view a command's details.");
     }
 

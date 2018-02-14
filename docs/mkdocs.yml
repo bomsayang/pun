@@ -1,0 +1,6 @@
+site_name: Pixel
+repo_url: https://github.com/RealBlazeIt/DEA
+pages:
+    - Home: index.md
+    - Setup: setup.md
+    - Commands: commands.md

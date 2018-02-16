@@ -3,7 +3,7 @@
 	Pixel
 </h1>
 
-[![Guild](https://discordapp.com/api/guilds/384419408111730689/embed.png)](https://discord.me/pixelsupport) [![Dependencies](https://david-dm.org/LumiteDubbz/Pixel.svg)](https://david-dm.org/LumiteDubbz/Pixel) [![Optional Dependencies](https://david-dm.org/LumiteDubbz/Pixel/optional-status.svg)](https://david-dm.org/LumiteDubbz/Pixel?type=optional) [![Build Status](https://travis-ci.org/LumiteDubbz/Pixel.svg?branch=master)](https://travis-ci.org/LumiteDubbz/Pixel)
+[![Guild](https://discordapp.com/api/guilds/384419408111730689/embed.png)](https://discord.me/pixelsupport) [![Dependencies](https://david-dm.org/LumiteDubbz/Pixel.svg)](https://david-dm.org/LumiteDubbz/Pixel) [![Optional Dependencies](https://david-dm.org/LumiteDubbz/Pixel/optional-status.svg)](https://david-dm.org/LumiteDubbz/Pixel?type=optional)
 
 An open-source Discord bot, written with: Library: Discord.js, Framework: Patron.js
 

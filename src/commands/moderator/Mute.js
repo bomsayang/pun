@@ -5,7 +5,7 @@ const ModerationService = require('../../services/ModerationService')
 class Mute extends Command {
   constructor() {
     super({
-      names: ['mute'],
+      names: ['mute', 'silence'],
       groupName: 'moderator',
       description: 'Mute any member.',
       botPermissions: ['MANAGE_ROLES'],

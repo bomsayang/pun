@@ -31,7 +31,11 @@ class Skills extends Command {
       }
     }
 
-    return text.send(description + '```', { title: args.member.user.tag + '\'s Skills:' });    
+    if (Object.values(dbUser.skills).length <= 0) {
+      return text.sendError((args.member.id === msg.author.id ? 'You have ' : args.member.user.tag + ' has ') + ' no skills.');
+    }
+
+    return text.send(description + '```', { title: args.member.user.tag + '\'s Skills:' });
   }
 }
 

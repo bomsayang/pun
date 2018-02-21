@@ -6,7 +6,6 @@ const client = require('../structures/Client.js');
 const handler = new Handler(client.registry);
 const XpService = require('../services/XpService.js');
 const logger = require('cus-log');
-const { muteForSpam } = require('../services/AutoModerationService');
 
 client.on('message', async msg => {
   if (msg.author.bot) {

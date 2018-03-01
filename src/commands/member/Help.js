@@ -4,7 +4,7 @@ const utility = require('../../utility');
 class Help extends Command {
   constructor() {
     super({
-      names: ['help', 'command'],
+      names: ['help', 'commands'],
       groupName: 'member',
       description: 'Shows information on a command',
       guildOnly: false,
@@ -24,7 +24,7 @@ class Help extends Command {
   run(msg, args, text) {
     if (utility.String.isNullOrWhiteSpace(args.command)) {
       const groups = msg.client.registry.groups;
-      let allCommands = 'Here\'s all of the commands available:\n';
+      let allCommands = 'Here\'s all of the commands available:\n\n';
 
       for (let i = 0; i < groups.length; i++) {
         const groupCommands = groups[i].commands;
@@ -35,11 +35,11 @@ class Help extends Command {
         }
 
         allCommands = allCommands.substring(0, allCommands.length - 2);
-        allCommands += '\n';
+        allCommands += '\n\n';
       }
 
       const prefix = msg.dbGuild.settings.prefix;
-      return text.send(allCommands + "\n\nThe command prefix for this guild is " + prefix + ".\n\nUse `" + prefix + "help <command>` to view a command's details.");
+      return text.send(allCommands + "\n\nThe command prefix for this guild is `" + prefix + "`.\n\nUse `" + prefix + "help <command>` to view a command's details.");
     }
 
     const lowerInput = args.command.toLowerCase();

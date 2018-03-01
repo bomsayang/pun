@@ -5,7 +5,7 @@ const ModerationService = require('../../services/ModerationService')
 class QuickMute extends Command {
   constructor() {
     super({
-      names: ['qm', 'quickmute'],
+      names: ['quickmute', 'qm'],
       groupName: 'moderator',
       description: 'Mute any member.',
       botPermissions: ['MANAGE_ROLES'],
@@ -31,7 +31,7 @@ class QuickMute extends Command {
 
   async run(msg, args, text) {
     if (msg.dbGuild.roles.muted === null) {
-      return text.sendError('You must set the muted role with the `' + msg.dbGuild.settings.prefix + 'setmute @Role` command before you can mute users.');
+      return text.sendError('You must set the muted role with the `' + msg.dbGuild.settings.prefix + 'setmute <Role>` command before you can mute users.');
     } else if (args.member.roles.has(msg.dbGuild.roles.muted)) {
       return text.sendError('This member is already muted.');
     }
@@ -39,7 +39,7 @@ class QuickMute extends Command {
     const role = msg.guild.roles.get(msg.dbGuild.roles.muted);
 
     if (role === undefined) {
-      return text.sendError('The set muted role has been deleted. Please set a new one with the `' + msg.dbGuild.settings.prefix + 'setmute Role` command.');
+      return text.sendError('The set muted role has been deleted. Please set a new one with the `' + msg.dbGuild.settings.prefix + 'setmute <Role>` command.');
     }
 
     await args.member.addRole(role);

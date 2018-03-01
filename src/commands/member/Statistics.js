@@ -15,7 +15,7 @@ class Statistics extends Command {
     const uptime = utility.Number.msToTime(msg.client.uptime);
 
     await text.dmFields([
-      'Authors', '`</LumiteDubbz>#7496\nDaf🎄#6059\nAssLey#0911\nLuner#0059`',
+      'Authors', '`Lumite#1234\nAssley#0911\nLuner#0059`',
       'Framework', 'patron.js',
       'Memory', (process.memoryUsage().rss / 1048576).toFixed(2) + ' MB',
       'Servers', msg.client.guilds.size.toLocaleString(),

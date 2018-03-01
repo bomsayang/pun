@@ -31,7 +31,7 @@ class Warn extends Command {
   async run(msg, args, text) {
     await text.reply('You have successfully warned ' + args.member.user.tag + ' for `' + args.warning + '`.');
     await ModerationService.tryInformUser(msg.guild, msg.author, 'warned', args.member.user, args.warning);
-    await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Warn', utility.Constants.embedColors.mute, args.warning, msg.author, args.member.user);
+    return ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Warn', utility.Constants.embedColors.mute, args.warning, msg.author, args.member.user);
   }
 }
 

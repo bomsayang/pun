@@ -11,10 +11,6 @@ Visit the <a href="https://github.com/LumiteDubbz/Pixel/wiki">Wiki</a> to learn 
 
 <a href="https://lumitedubbz.github.io/Pixel/">Full Documentation</a>
 
-# Note
-
-Please note that you are on the <b>dev</b> branch. All of this code is experimental and is <b>not</b> guaranteed to work. To view the tested and guaranteed to work (hopefully), click <a href="https://github.com/LumiteDubbz/Pixel/tree/master"><b>here</b>.
-
 # Support
 
 This can also be found on the <a href="https://github.com/LumiteDubbz/Pixel/wiki">Wiki</a>, but oh well, I'll put it here as well.

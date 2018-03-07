@@ -11,5 +11,5 @@ client.on('ready', () => {
   logger.log(1, ' |____|   |__/__/\_ \\___  >____/')
   logger.log(1, '                   \/    \/      ')
   logger.log(1, '\n')
-  logger.log(1, 'Bot is ready to be used in ${client.guilds.size}!
+  logger.log(1, 'Bot is ready to be used in ${client.guilds.size}!')
 });

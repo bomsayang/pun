@@ -1,5 +1,5 @@
 const { Command, Argument, ArgumentDefault } = require('patron.js');
-const utility = require('../../utility');
+const String = require('../../utility/String.js');
 
 class Skills extends Command {
   constructor() {
@@ -12,8 +12,8 @@ class Skills extends Command {
           name: 'member',
           key: 'member',
           type: 'member',
-          defaultValue: ArgumentDefault.Member,
           example: 'fagtron#1324',
+          defaultValue: ArgumentDefault.Member,
           remainder: true
         })
       ]
@@ -26,13 +26,7 @@ class Skills extends Command {
     let description = '```';
 
     for (const key in dbUser.skills) {
-      if (dbUser.skills.hasOwnProperty(key) === true) {
-        description += utility.String.capitializeWords(key) + ': ' + dbUser.skills[key] + '\n';
-      }
-    }
-
-    if (Object.values(dbUser.skills).length <= 0) {
-      return text.sendError((args.member.id === msg.author.id ? 'You have ' : args.member.user.tag + ' has ') + ' no skills.');
+      description += String.capitializeWords(key) + ': ' + dbUser.skills[key] + '\n';
     }
 
     return text.send(description + '```', { title: args.member.user.tag + '\'s Skills:' });

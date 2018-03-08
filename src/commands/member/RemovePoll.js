@@ -1,5 +1,5 @@
 const { Command, Argument } = require('patron.js');
-const utility = require('../../utility');
+const String = require('../../utility/String.js');
 
 class RemovePoll extends Command {
   constructor() {
@@ -25,7 +25,8 @@ class RemovePoll extends Command {
     }
 
     await msg.client.db.pollRepo.deletePoll(args.poll.name, args.poll.creatorId, msg.guild.id);
-    return text.reply('Successfully destroyed your poll `' + utility.String.boldify(args.poll.name) + '`.');
+
+    return text.reply('Successfully destroyed your poll `' + String.boldify(args.poll.name) + '`.');
   }
 }
 

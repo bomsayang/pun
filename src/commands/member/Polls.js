@@ -20,13 +20,16 @@ class Polls extends Command {
 
     for (let i = 0; i < polls.length; i++) {
       message += polls[i].index + '. ' + polls[i].name + '\n';
+
       if (i === 20) {
         await msg.author.dmFields(['Polls For Server: ' + msg.guild.name, '```\n' + message + '```'], false);
+
         message = '';
       }
     }
 
     await text.dmFields(['Polls For Server: ' + msg.guild.name, '```\n' + message + '```'], false);
+
     return text.reply('You have been DMed with all ' + msg.guild.name + ' polls.');
   }
 }

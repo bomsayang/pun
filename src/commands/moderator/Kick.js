@@ -35,7 +35,7 @@ class Kick extends Command {
     }
 
     await args.member.kick(args.reason);
-    await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Kick', Constants.embedColors.kick, args.reason, msg.author, args.member.user);
+    await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Kick', Constants.EMBED_COLORS.KICK, args.reason, msg.author, args.member.user);
 
     return text.send('Successfully kicked ' + args.member.user.tag + '.' + (args.reason.length === 0 ? '' : '\n**Reason**: ' + args.reason));
   }

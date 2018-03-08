@@ -1,6 +1,6 @@
 const { Command, Argument } = require('patron.js');
-const utility = require('../../utility');
-const ModerationService = require('../../services/ModerationService')
+const Constants = require('../../utility/Constants.js');
+const ModerationService = require('../../services/ModerationService');
 
 class Warn extends Command {
   constructor() {
@@ -31,7 +31,8 @@ class Warn extends Command {
   async run(msg, args, text) {
     await text.reply('You have successfully warned ' + args.member.user.tag + ' for `' + args.warning + '`.');
     await ModerationService.tryInformUser(msg.guild, msg.author, 'warned', args.member.user, args.warning);
-    return ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Warn', utility.Constants.embedColors.mute, args.warning, msg.author, args.member.user);
+
+    return ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Warn', Constants.EMBED_COLORS.WARN, args.warning, msg.author, args.member.user);
   }
 }
 

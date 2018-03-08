@@ -1,5 +1,5 @@
 const { Command, Argument } = require('patron.js');
-const utility = require('../../utility/');
+const Constants = require('../../utility/Constants.js');
 
 class SetGuildPrefix extends Command {
   constructor() {
@@ -13,7 +13,7 @@ class SetGuildPrefix extends Command {
           key: 'prefix',
           type: 'string',
           example: '$',
-          preconditions: [{ name: 'characterlimit', options: { limit: utility.Constants.guildSettings.prefixLength } }],
+          preconditions: [{ name: 'characterlimit', options: { limit: Constants.GUILD_SETTINGS.PREFIX_LENGTH } }],
           remainder: true
         })
       ]

@@ -27,7 +27,7 @@ class AddModRole extends Command {
   async run(msg, args, text) {
     if (args.permissionLevel < 1 || args.permissionLevel > 3) {
       return text.sendError('Permission levels:\nModerator: 1\nAdministrator: 2\nOwner: 3');
-    } else if (msg.dbGuild.roles.mod.some((role) => role.id === args.role.id)) {
+    } else if (msg.dbGuild.roles.mod.some(role => role.id === args.role.id)) {
       return text.sendError('This moderation role has already been set.');
     }
 

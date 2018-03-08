@@ -1,9 +1,9 @@
 const { RequireAll } = require('patron.js');
 const { join } = require('path');
+const Logger = require('./utility/Logger.js');
 const client = require('./structures/Client.js');
 const registry = require('./structures/Registry.js');
 const credentials = require('./../credentials.json');
-const logger = require('cus-log');
 
 client.registry = registry;
 RequireAll(join(__dirname, 'events'));
@@ -12,18 +12,7 @@ RequireAll(join(__dirname, 'intervals'));
 client.db.init(credentials.mongoConnectionURL);
 client.init();
 
-process.on('unhandledRejection', err => {
-  logger.log(2, 'Unhandled Rejection:\n' + err.stack);
-});
-
-process.on('exit', code => {
-  logger.log(2, `About to exit the application with the code "${code}`);
-});
-
-process.on('uncaughtException', err => {
-  logger.log(2, 'Uncaught Exception:\n' + err.stack);
-});
-
-process.on('warning', warning => {
-  logger.log(2, 'Warning:\n' + warning.stack);
-});
+process.on('unhandledRejection', err => Logger.error('Unhandled Rejection:\n' + err.stack));
+process.on('uncaughtException', err => Logger.error('Uncaught Exception:\n' + err.stack));
+process.on('exit', code => Logger.error('Exited with code: ' + code));
+process.on('warning', warning => Logger.error('Warning:\n' + warning.stack));

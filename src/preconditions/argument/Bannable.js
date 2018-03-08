@@ -1,4 +1,4 @@
-const { ArgumentPrecondition, PreconditionResult} = require('patron.js');
+const { ArgumentPrecondition, PreconditionResult } = require('patron.js');
 const utility = require('../../utility');
 
 class Bannable extends ArgumentPrecondition {
@@ -8,7 +8,7 @@ class Bannable extends ArgumentPrecondition {
     });
   }
 
-  run(cmd, msg, arg, args, value, options) {
+  run(cmd, msg, arg, args, value) {
     const userTag = value.tag !== undefined ? value.tag : value.user.tag;
     const member = value.bannable !== undefined ? value : msg.guild.member(value.id);
 

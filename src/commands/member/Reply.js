@@ -1,4 +1,4 @@
-const { Command } = require('patron.js');
+const { Command, Context } = require('patron.js');
 
 class Reply extends Command {
   constructor() {
@@ -6,7 +6,7 @@ class Reply extends Command {
       names: ['reply'],
       groupName: 'member',
       description: 'Replies with a Message.',
-      guildOnly: false
+      usableContexts: [Context.Guild, Context.DM]
     });
   }
 

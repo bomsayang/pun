@@ -1,83 +1,50 @@
-const utility = require('../utility');
-const levels = utility.Constants.levels;
+const { Text, Constants: { LEVELS, XP } } = require('../utility');
+const { Collection } = require('discord.js');
 
-class XpService {
+class XPService {
   constructor() {
-    this.messages = new Map();
+    this.messages = new Collection();
   }
 
-  async giveXp(msg) {
-    const lastMessage = this.messages.get(msg.author.id);
-    const isMessageCooldownOver = lastMessage === undefined || Date.now() - lastMessage > utility.Constants.xp.messageCooldown;
-    const isLongEnough = msg.content.length >= utility.Constants.xp.minCharLength;
-    const neededXp = await this.getNeededXp(msg.dbUser);
+  async giveXP(msg, global = true) {
+    const user = global === true ? msg.globalDbUser : msg.dbUser;
+    const nextLevel = this.getNextLevel(user);
 
-    if (neededXp === 'max level') {
+    if (nextLevel === null) {
       return;
     }
+
+    const key = msg.author.id + '-' + (global === true ? 'global' : 'local');
+    const lastMessage = this.messages.get(key);
+    const isMessageCooldownOver = lastMessage === undefined || Date.now() - lastMessage > XP[global === true ? 'GLOBAL_MESSAGE_COOLDOWN' : 'MESSAGE_COOLDOWN'];
+    const isLongEnough = msg.content.length >= XP[global === true ? 'GLOBAL_MIN_CHAR_LENGTH' : 'MIN_CHAR_LENGTH'];
 
     if (isMessageCooldownOver && isLongEnough) {
-      this.messages.set(msg.author.id, Date.now());
-      if (msg.dbUser.xp + utility.Constants.xp.xpPerMessage > neededXp) {
-        const newDbUser = await msg.client.db.userRepo.modifyLevel(msg.dbGuild, msg.member, 1);
-        await msg.client.db.userRepo.modifySkillPoints(msg.dbGuild, msg.member, 2);
-        await utility.Text.createEmbed(msg.author, utility.String.boldify(msg.author.tag) + ', Congratulations, you\'ve ' + (newDbUser.level === 20 ? 'achieved the maximum level we currently have' : 'advanced to level ' + newDbUser.level) + '!');
-      }
+      const xpAmount = global === true ? XP.GLOBAL_XP_PER_MESSAGE : XP.XP_PER_MESSAGE;
+      this.messages.set(key, Date.now());
 
-      return msg.client.db.userRepo.modifyXP(msg.dbGuild, msg.member, utility.Constants.xp.xpPerMessage);
-    }
-  }
+      if (user.xp + xpAmount >= nextLevel.xp) {
+        const newDbUser = global === true ? await msg.client.db.globalUserRepo.modifyLevel(msg.member, nextLevel.level - msg.globalDbUser.level) : await msg.client.db.userRepo.modifyLevel(msg.dbGuild, msg.member, nextLevel.level - msg.dbUser.level);
 
-  async giveGlobalXp(msg) {
-    const globalLastMessage = this.messages.get(msg.author.id);
-    const globalIsMessageCooldownOver = globalLastMessage === undefined || Date.now() - globalLastMessage > utility.Constants.xp.globalMessageCooldown;
-    const globalIsLongEnough = msg.content.length >= utility.Constants.xp.globalMinCharLength;
-    const globalNeededXp = await this.getGlobalNeededXp(msg.globalDbUser);
-
-    if (globalNeededXp === 'max level') {
-      return;
-    }
-
-    if (globalIsMessageCooldownOver && globalIsLongEnough) {
-      this.messages.set(msg.author.id, Date.now());
-      if (msg.globalDbUser.xp + utility.Constants.xp.globalXpPerMessage > globalNeededXp) {
-        const newGlobalDbUser = await msg.client.db.globalUserRepo.modifyLevel(msg.member, 1);
-        await utility.Text.createEmbed(msg.channel, utility.String.boldify(msg.author.tag) + ', Congrats you\'ve ' + (newGlobalDbUser.level === 20 ? 'achieved the max global level we currently have' : 'advanced to level ' + newGlobalDbUser.level) + '!');
-      }
-
-      return msg.client.db.globalUserRepo.modifyXP(msg.member, utility.Constants.xp.globalXpPerMessage);
-    }
-  }
-
-  async getNeededXp(dbUser) {
-    const newUserLevel = dbUser.level + 1;
-
-    for (const key in levels) {
-      if (levels.hasOwnProperty(key) === true) {
-        const newLevel = levels[key];
-        if (newLevel.level === newUserLevel) {
-          return newLevel.xpRequired;
+        if (global === false) {
+          await msg.client.db.userRepo.modifySkillPoints(msg.dbGuild, msg.member, 2);
         }
-      }
-    }
 
-    return 'max level';
+        await Text.createEmbed(msg.author, 'Congratulations, you\'ve ' + (newDbUser.level === LEVELS.length ? 'achieved the maximum level we currently have' : 'advanced to level ' + newDbUser.level) + (global === true ? ' globally' : '') + '!', { footer: global === true ? undefined : { text: msg.guild.name, icon: msg.guild.iconURL } });
+      }
+      return global === true ? msg.client.db.globalUserRepo.modifyXP(msg.member, xpAmount) : msg.client.db.userRepo.modifyXP(msg.dbGuild, msg.member, xpAmount);
+    }
   }
 
-  async getGlobalNeededXp(globalDbUser) {
-    const newGlobalUserLevel = globalDbUser.level + 1;
+  getNextLevel(dbUser) {
+    const levelInfo = LEVELS.find(x => dbUser.xp < x.XP_REQUIRED);
 
-    for (const key in levels) {
-      if (levels.hasOwnProperty(key) === true) {
-        const newGlobalLevel = levels[key];
-        if (newGlobalLevel.level === newGlobalUserLevel) {
-          return newGlobalLevel.xpRequired;
-        }
-      }
+    if (levelInfo !== undefined) {
+      return { xp: levelInfo.XP_REQUIRED, level: levelInfo.LEVEL };
     }
 
-    return 'max level';
+    return null;
   }
 }
 
-module.exports = new XpService();
+module.exports = new XPService();

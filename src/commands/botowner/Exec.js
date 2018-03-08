@@ -1,6 +1,7 @@
 const { Command, Argument } = require('patron.js');
-const { exec } = require('child_process');
-const utility = require('../../utility');
+const { promisify } = require('util');
+const exec = promisify(require('child_process').exec);
+const String = require('../../utility/String.js');
 
 class Exec extends Command {
   constructor() {
@@ -8,7 +9,6 @@ class Exec extends Command {
       names: ['exec'],
       groupName: 'botowner',
       description: 'Executes batch commands',
-      guildOnly: false,
       args: [
         new Argument({
           key: 'command',
@@ -22,12 +22,11 @@ class Exec extends Command {
   }
 
   run(msg, args, text) {
-    exec(args.command, (error, stdout, stderr) => {
-      if (error || stderr) {
-        return text.sendError('```bat\n' + (error || stderr) + '```', false);
-      }
-
-      return text.send('**Successfully Executed**```bat\n' + args.command + '```' + (utility.String.isNullOrWhiteSpace(stdout) ? '' : '**Output**' + (stdout.length > 2048 ? '\nOutput is too long to show.' : '```bat\n' + stdout.replace(process.env.USERNAME, 'USER') + '```')));
+    /* eslint-disable arrow-body-style */
+    return exec(args.command).then(({ stdout, stderr }) => {
+      return text.send('**Successfully Executed**```bat\n' + args.command + '```' + (String.isNullOrWhiteSpace(stderr) ? String.isNullOrWhiteSpace(stdout) ? '' : '**Output**' + (stdout.length > 2048 ? '\nOutput is too long to show.' : '```bat\n' + stdout.replace(process.env.USERNAME, 'USER') + '```') : stderr));
+    }).catch(e => {
+      return text.sendError('```bat\n' + e + '```', false);
     });
   }
 }

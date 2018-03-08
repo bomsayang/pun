@@ -1,10 +1,10 @@
 class Random {
   static nextInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * (max - min) + 1) + min;
   }
 
   static arrayElement(array) {
-    return array[this.nextInt(0, array.length)];
+    return array[Random.nextInt(0, array.length)];
   }
 }
 

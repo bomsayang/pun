@@ -1,6 +1,6 @@
 const { Command } = require('patron.js');
 const { get } = require('snekfetch');
-const utility = require('../../utility');
+const String = require('../../utility/String.js');
 
 class Ass extends Command {
   constructor() {
@@ -18,7 +18,7 @@ class Ass extends Command {
     const options = {
       image: file,
       footer: {
-        text: utility.String.isNullOrWhiteSpace(result.model) ? '' : 'Model: ' + result.model
+        text: String.isNullOrWhiteSpace(result.model) ? '' : 'Model: ' + result.model
       }
     };
 

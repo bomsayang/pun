@@ -1,8 +1,15 @@
 class Constants {
   constructor() {
-    this.defaultPrefix = 'p!';
+    this.AUTO_SPAM = {
+      COOLDOWN: 1000,
+      SIMILARITY: 0.90,
+      MESSAGES_REQUIRED: 5,
+      MUTE_LENGTH: 1800000
+    };
 
-    this.disabledEvents = [
+    this.DEFAULT_PREFIX = 'p!';
+
+    this.DISABLED_EVENTS = [
       'CHANNELS_PIN_UPDATE',
       'MESSAGE_DELETE_BULK',
       'MESSAGE_REACTION_ADD',
@@ -18,9 +25,9 @@ class Constants {
       'VOICE_STATE_UPDATE'
     ];
 
-    this.embedColors = {
-      error: [255, 0, 0],
-      defaults: [
+    this.EMBED_COLORS = {
+      ERROR: [255, 0, 0],
+      DEFAULTS: [
         [255, 38, 154],
         [255, 190, 17],
         [255, 28, 142],
@@ -39,133 +46,182 @@ class Constants {
         [0, 245, 255],
         [0, 255, 127]
       ],
-      mute: [255, 114, 14],
-      unban: [19, 255, 25],
-      unmute: [109, 237, 94],
-      kick: [255, 160, 36],
-      clear: [0, 29, 255],
-      ban: [255, 0, 0]
+      BAN: [255, 0, 0],
+      CLEAR: [0, 29, 255],
+      MUTE: [255, 114, 14],
+      UNBAN: [19, 255, 25],
+      KICK: [255, 160, 36],
+      WARN: [249, 222, 69],
+      UNMUTE: [109, 237, 94],
+      AUTO_MUTE: [152, 25, 232]
     };
 
-    this.regexes = {
-      capitalize: /\w\S*/g
+    this.REGEXES = {
+      CAPITALIZE: /\w\S*/g,
+      PREFIX: prefix => new RegExp('^' + this.REGEXES.ESCAPE_REGEX(prefix)),
+      ESCAPE_REGEX: str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
     };
 
-    this.guildSettings = {
-      prefixLength: 5
+    this.GUILD_SETTINGS = {
+      PREFIX_LENGTH: 5
     };
 
-    this.intervals = {
-      autoUnmute: 30000,
-      autoRemovePoll: 30000
+    this.INTERVALS = {
+      AUTO_UNMUTE: 30000,
+      AUTO_REMOVE_POLL: 30000
     };
 
-    this.leaderboardCap = 10;
+    this.LEADERBOARD_CAP = 10;
 
-    this.polls = {
-      elderTimeRequired: 172800000,
-      maxAnswers: 6,
-      maxAnswerChar: 20,
-      maxChar: 40
+    this.POLLS = {
+      ELDER_TIME_REQUIRED: 172800000,
+      MAX_ANSWERS: 6,
+      MAX_ANSWER_CHAR: 20,
+      MAX_CHAR: 40
     };
 
-    this.setgame = {
-      maxLength: 128
+    this.MAX_GAME_LENGTH = 128;
+
+    this.XP = {
+      MESSAGE_COOLDOWN: 15000,
+      MIN_CHAR_LENGTH: 5,
+      XP_PER_MESSAGE: 3,
+      GLOBAL_MESSAGE_COOLDOWN: 15000,
+      GLOBAL_MIN_CHAR_LENGTH: 10,
+      GLOBAL_XP_PER_MESSAGE: 1
     };
 
-    this.xp = {
-      messageCooldown: 15000,
-      minCharLength: 5,
-      xpPerMessage: 3,
-      globalMessageCooldown: 15000,
-      globalMinCharLength: 10,
-      globalXpPerMessage: 1
-    };
+    this.SKILLS = [
+      'magic',
+      'damage',
+      'healing',
+      'craftmanship',
+      'intelligence',
+      'haste'
+    ];
 
-    this.skills = ['magic', 'damage', 'healing', 'craftmanship', 'intelligence', 'haste'];
-
-    this.levels = [
+    this.LEVELS = [
       {
-        'level': 1,
-        'xpRequired': 20
+        LEVEL: 1,
+        XP_REQUIRED: 20
       },
       {
-        'level': 2,
-        'xpRequired': 60
+        LEVEL: 2,
+        XP_REQUIRED: 60
       },
       {
-        'level': 3,
-        'xpRequired': 140
+        LEVEL: 3,
+        XP_REQUIRED: 140
       },
       {
-        'level': 4,
-        'xpRequired': 190
+        LEVEL: 4,
+        XP_REQUIRED: 190
       },
       {
-        'level': 5,
-        'xpRequired': 237
+        LEVEL: 5,
+        XP_REQUIRED: 237
       },
       {
-        'level': 6,
-        'xpRequired': 291
+        LEVEL: 6,
+        XP_REQUIRED: 291
       },
       {
-        'level': 7,
-        'xpRequired': 371
+        LEVEL: 7,
+        XP_REQUIRED: 371
       },
       {
-        'level': 8,
-        'xpRequired': 452
+        LEVEL: 8,
+        XP_REQUIRED: 452
       },
       {
-        'level': 9,
-        'xpRequired': 500
+        LEVEL: 9,
+        XP_REQUIRED: 500
       },
       {
-        'level': 10,
-        'xpRequired': 571
+        LEVEL: 10,
+        XP_REQUIRED: 571
       },
       {
-        'level': 11,
-        'xpRequired': 624
+        LEVEL: 11,
+        XP_REQUIRED: 624
       },
       {
-        'level': 12,
-        'xpRequired': 691
+        LEVEL: 12,
+        XP_REQUIRED: 691
       },
       {
-        'level': 13,
-        'xpRequired': 742
+        LEVEL: 13,
+        XP_REQUIRED: 742
       },
       {
-        'level': 14,
-        'xpRequired': 783
+        LEVEL: 14,
+        XP_REQUIRED: 783
       },
       {
-        'level': 15,
-        'xpRequired': 824
+        LEVEL: 15,
+        XP_REQUIRED: 824
       },
       {
-        'level': 16,
-        'xpRequired': 853
+        LEVEL: 16,
+        XP_REQUIRED: 853
       },
       {
-        'level': 17,
-        'xpRequired': 912
+        LEVEL: 17,
+        XP_REQUIRED: 912
       },
       {
-        'level': 18,
-        'xpRequired': 984
+        LEVEL: 18,
+        XP_REQUIRED: 984
       },
       {
-        'level': 19,
-        'xpRequired': 1114
+        LEVEL: 19,
+        XP_REQUIRED: 1114
       },
       {
-        'level': 20,
-        'xpRequired': 1432
+        LEVEL: 20,
+        XP_REQUIRED: 1432
       },
-    ];    
+      {
+        LEVEL: 21,
+        XP_REQUIRED: 1754
+      },
+      {
+        LEVEL: 22,
+        XP_REQUIRED: 2100
+      },
+      {
+        LEVEL: 23,
+        XP_REQUIRED: 2490
+      },
+      {
+        LEVEL: 24,
+        XP_REQUIRED: 2813
+      },
+      {
+        LEVEL: 25,
+        XP_REQUIRED: 3256
+      },
+      {
+        LEVEL: 26,
+        XP_REQUIRED: 3679
+      },
+      {
+        LEVEL: 27,
+        XP_REQUIRED: 4096
+      },
+      {
+        LEVEL: 28,
+        XP_REQUIRED: 4486
+      },
+      {
+        LEVEL: 29,
+        XP_REQUIRED: 5009
+      },
+      {
+        LEVEL: 30,
+        XP_REQUIRED: 5526
+      }
+    ];
   }
 }
 

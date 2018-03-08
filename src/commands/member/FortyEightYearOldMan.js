@@ -1,4 +1,4 @@
-const { Command } = require('patron.js');
+const { Command, Context } = require('patron.js');
 
 class FortyEightYearOldMan extends Command {
   constructor() {
@@ -6,7 +6,7 @@ class FortyEightYearOldMan extends Command {
       names: ['fortyeightyearoldman', '48yearoldman', '48yearold', '48year', '48'],
       groupName: 'member',
       description: 'Sends the popular "48 Year Man From Somalia" copypasta.',
-      guildOnly: false
+      usableContexts: [Context.Guild, Context.DM]
     });
   }
 

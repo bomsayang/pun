@@ -43,7 +43,8 @@ class Unmute extends Command {
 
     await args.member.removeRole(role);
     await ModerationService.tryInformUser(msg.guild, msg.author, 'unmuted', args.member.user, args.reason);
-    await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Un-mute', Constants.embedColors.unmute, args.reason, msg.author, args.member.user);
+    await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Un-mute', Constants.EMBED_COLORS.UNMUTE, args.reason, msg.author, args.member.user);
+
     return text.send('You have successfully unmuted ' + args.member.user.tag + '.');
   }
 }

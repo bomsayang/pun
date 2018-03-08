@@ -1,8 +1,5 @@
-const utility = require('../utility');
 const client = require('../structures/Client.js');
-const text = require('../utility/Text.js');
-const db = client.db;
-const logger = require('cus-log');
+const { Text, String, Constants, Random, Utils } = require('../utility');
 
 class ModerationService {
   getPermLevel(dbGuild, member) {
@@ -22,10 +19,10 @@ class ModerationService {
   }
 
   tryInformUser(guild, author, action, user, reason = '') {
-    return text.createEmbed(user, utility.String.boldify(author.tag) + ' has ' + action + ' you' + (utility.String.isNullOrWhiteSpace(reason) ? '.' : ' for the following reason: ' + reason + '.'), { footer: { text: guild.name, icon: guild.iconURL } });
+    return Utils.try(Text.createEmbed(user, String.boldify(author.tag) + ' has ' + action + ' you' + (String.isNullOrWhiteSpace(reason) ? '.' : ' for the following reason: ' + reason + '.'), { footer: { text: guild.name, icon: guild.iconURL } }));
   }
 
-  async tryModLog(dbGuild, guild, action, color, reason = '', moderator = null, user = null, extraInfoType = '', extraInfo = '') {
+  async tryModLog(dbGuild, guild, action, color = null, reason = '', moderator = null, user = null, extraInfoType = '', extraInfo = '') {
     if (dbGuild.channels.modLog === null) {
       return false;
     }
@@ -37,10 +34,10 @@ class ModerationService {
     }
 
     const options = {
-      color: utility.Random.arrayElement(utility.Constants.embedColors.defaults),
+      color: color !== null ? color : Random.arrayElement(Constants.EMBED_COLORS.DEFAULTS),
       footer: {
         text: 'Case #' + dbGuild.misc.caseNumber,
-        icon: 'http://i.imgur.com/BQZJAqT.png'
+        icon: 'https://i.imgur.com/va0CJr2.png'
       },
       timestamp: true,
       title: 'New moderator action.'
@@ -49,13 +46,13 @@ class ModerationService {
     if (moderator !== null) {
       options.author = {
         name: moderator.tag,
-        icon: moderator.avatarURL,
+        icon: moderator.displayAvatarURL
       };
     }
 
     let description = '**Action:** ' + action + '\n';
 
-    if (utility.String.isNullOrWhiteSpace(extraInfoType) === false) {
+    if (String.isNullOrWhiteSpace(extraInfoType) === false) {
       description += '**' + extraInfoType + ':** ' + extraInfo + '\n';
     }
 
@@ -63,12 +60,13 @@ class ModerationService {
       description += '**User:** ' + user.tag + ' (' + user.id + ')\n';
     }
 
-    if (utility.String.isNullOrWhiteSpace(reason) === false) {
+    if (String.isNullOrWhiteSpace(reason) === false) {
       description += '**Reason:** ' + reason + '\n';
     }
 
-    await db.guildRepo.upsertGuild(dbGuild.guildId, { $inc: { 'misc.caseNumber': 1 } });
-    return text.createEmbed(channel, description, options);
+    await client.db.guildRepo.upsertGuild(dbGuild.guildId, { $inc: { 'misc.caseNumber': 1 } });
+
+    return Text.createEmbed(channel, description, options);
   }
 }
 

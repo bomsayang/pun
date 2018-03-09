@@ -13,7 +13,7 @@ class Polls extends Command {
     const polls = (await msg.client.db.pollRepo.findMany({ guildId: msg.guild.id })).sort((a, b) => b.index - a.index);
 
     if (polls.length === 0) {
-      return text.sendError('There\'s no polls on this server.');
+      return text.sendError('There are no polls in this server.');
     }
 
     let message = '';

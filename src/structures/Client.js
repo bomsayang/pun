@@ -12,8 +12,7 @@ class Client extends DiscordJSClient {
       messageCacheMaxSize: 5,
       messageCacheLifetime: 10,
       messageSweepInterval: 1800,
-      disabledEvents: Constants.DISABLED_EVENTS,
-      token: credentials.token
+      disabledEvents: Constants.DISABLED_EVENTS
     });
 
     this.config = config;
@@ -21,8 +20,8 @@ class Client extends DiscordJSClient {
   }
 
   init() {
-    return this.login(credentials.token).catch(err => Logger.error(err));
+    return this.login(this.config.token).catch(err => Logger.error(err));
   }
 }
 
-module.exports = new Client();
+module.exports = new Client(credentials);

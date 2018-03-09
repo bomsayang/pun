@@ -10,7 +10,7 @@ const handler = new Handler({ registry: client.registry });
 const contexts = {
   [Context.Guild]: 'server',
   [Context.DM]: 'DMs',
-  [Context.Group]: 'group DMs'
+  [Context.GroupDM]: 'group DMs'
 };
 
 client.on('message', async msg => {

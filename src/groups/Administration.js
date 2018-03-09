@@ -10,4 +10,4 @@ class Administration extends Group {
   }
 }
 
-module.exports = new Administration ();
+module.exports = new Administration();

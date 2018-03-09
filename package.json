@@ -1,10 +1,10 @@
 {
   "name": "pixel",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "A free to use, open-source and powerful bot, written in Discord.js",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix src/**",
     "start": "node src/app.js"
   },
   "engines": {
@@ -28,15 +28,11 @@
   },
   "homepage": "https://github.com/lumitedubbz/pixel#readme",
   "dependencies": {
-    "colors": "^1.1.2",
-    "cus-log": "github:LumiteDubbz/cus-log",
-    "danbooru": "^2.0.3",
-    "discord.js": "^11.3.0",
-    "express": "^4.16.2",
-    "moment": "^2.20.1",
+    "discord.js": "^11.3.2",
     "mongodb": "^3.0.1",
-    "path": "^0.12.7",
-    "patron.js": "github:vim2meta/patron.js#1b9193a",
-    "snekfetch": "^3.6.1"
+    "patron.js": "github:vim2meta/patron.js"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1"
   }
 }

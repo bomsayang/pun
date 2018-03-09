@@ -18,6 +18,5 @@ node_modules/
 package-lock.json
 credentials.json
 .vscode/
-
-# Old files
 old_docs/
+Pixel.code-workspace

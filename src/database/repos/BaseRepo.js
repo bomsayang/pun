@@ -62,7 +62,7 @@ class BaseRepo {
   }
 
   updateOne(filter, update, upsert = false) {
-    return this.collection.updateOne(filter, update, { upsert: upsert });
+    return this.collection.updateOne(filter, update, { upsert });
   }
 
   updateById(id, update, upsert = false) {
@@ -70,7 +70,7 @@ class BaseRepo {
   }
 
   async findOneAndUpdate(filter, update, upsert = false) {
-    const result = await this.collection.findOneAndUpdate(filter, update, { upsert: upsert, returnOriginal: false });
+    const result = await this.collection.findOneAndUpdate(filter, update, { upsert, returnOriginal: false });
 
     return result.value;
   }

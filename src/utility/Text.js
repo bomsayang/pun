@@ -6,7 +6,7 @@ const Random = require('./Random.js');
 
 class Text {
   constructor(msg) {
-    this.msg = msg
+    this.msg = msg;
   }
 
   reply(description, options) {
@@ -17,8 +17,10 @@ class Text {
     return this.constructor.createEmbed(this.msg.channel, description, options);
   }
 
-  sendError(description, reply = true, options) {
-    return this.send((reply ? String.boldify(this.msg.author.tag) + ', ' : '') + description, { color: Constants.embedColors.error });
+  sendError(description, reply = true, options = {}) {
+    options.color = Constants.EMBED_COLORS.ERROR;
+
+    return this.send((reply === true ? String.boldify(this.msg.author.tag) + ', ' : '') + description, options);
   }
 
   dm(description, options) {
@@ -43,7 +45,7 @@ class Text {
     }
 
     const embed = new RichEmbed()
-      .setColor(options.color !== undefined ? options.color : Random.arrayElement(Constants.embedColors.defaults));
+      .setColor(options.color !== undefined ? options.color : Random.arrayElement(Constants.EMBED_COLORS.DEFAULTS));
 
     for (let i = 0; i < fieldsAndValues.length; i++) {
       if (Number.isEven(i)) {
@@ -60,7 +62,7 @@ class Text {
 
   static createEmbed(channel, description, options = {}) {
     const embed = new RichEmbed()
-      .setColor(options.color === undefined ? Random.arrayElement(Constants.embedColors.defaults) : options.color);
+      .setColor(options.color === undefined ? Random.arrayElement(Constants.EMBED_COLORS.DEFAULTS) : options.color);
 
     if (String.isNullOrWhiteSpace(description) === false) {
       embed.setDescription(description);

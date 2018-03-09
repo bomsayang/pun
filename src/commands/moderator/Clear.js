@@ -1,5 +1,5 @@
 const { Command, Argument } = require('patron.js');
-const utility = require('../../utility');
+const Constants = require('../../utility/Constants.js');
 const ModerationService = require('../../services/ModerationService.js');
 
 class Clear extends Command {
@@ -51,7 +51,7 @@ class Clear extends Command {
 
     const reply = await text.reply('You have successfully deleted ' + args.quantity + ' messages.');
 
-    ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Clear', utility.Constants.embedColors.clear, args.reason, msg.author, null, 'Quantity', args.quantity);
+    ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Clear', Constants.EMBED_COLORS.CLEAR, args.reason, msg.author, null, 'Quantity', args.quantity);
 
     return reply.delete(3000);
   }

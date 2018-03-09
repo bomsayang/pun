@@ -1,7 +1,7 @@
 class GlobalUser {
   constructor(userId) {
     this.userId = userId;
-    this.level = 1;
+    this.level = 0;
     this.xp = 0;
   }
 }

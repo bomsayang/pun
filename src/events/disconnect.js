@@ -1,6 +1,4 @@
 const client = require('../structures/Client.js');
-const logger = require('cus-log');
+const Logger = require('../utility/Logger.js');
 
-client.on('disconnect', () => {
-  logger.log(2, 'Pixel has disconnected.');
-});
+client.on('disconnect', () => Logger.log('Pixel has disconnected.'));

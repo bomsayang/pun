@@ -3,6 +3,7 @@ const Constants = require('../../utility/Constants.js');
 class Guild {
   constructor(guildId) {
     this.guildId = guildId;
+
     this.roles = {
       mod: [],
       muted: null,
@@ -14,7 +15,8 @@ class Guild {
     };
 
     this.settings = {
-      prefix: Constants.defaultPrefix,
+      prefix: Constants.DEFAULT_PREFIX,
+      autoMod: false,
       welcomeMessage: null
     };
 

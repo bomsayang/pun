@@ -47,9 +47,9 @@ class Softban extends Command {
 
     const formattedHours = args.days + ' day' + (args.days === 1 ? '' : 's');
 
-    await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Soft-ban', Constants.embedColors.ban, args.reason, msg.author, args.user, 'Number of days', formattedHours);
+    await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Soft-ban', Constants.EMBED_COLORS.BAN, args.reason, msg.author, args.user, 'Number of days', formattedHours);
 
-    return text.send('Successfully softbanned ' + args.user.tag + '.' + '\n**Messages Deleted**: ' + args.days + (args.reason.length === 0 ? '' : '\n**Reason**: ' + args.reason));
+    return text.send('Successfully softbanned ' + args.user.tag + '.\n**Messages Deleted**: ' + args.days + (args.reason.length === 0 ? '' : '\n**Reason**: ' + args.reason));
   }
 }
 

@@ -1,58 +1,57 @@
-const { Command, Argument } = require('patron.js');
-const utility = require('../../utility');
+const { Command, Argument, Context } = require('patron.js');
+const { Constants, String } = require('../../utility');
 
 class Help extends Command {
   constructor() {
     super({
-      names: ['help', 'commands'],
+      names: ['help', 'command'],
       groupName: 'member',
       description: 'Shows information on a command',
-      guildOnly: false,
+      usableContexts: [Context.Guild, Context.DM],
       args: [
         new Argument({
           key: 'command',
           name: 'command',
           type: 'string',
           example: 'help',
-          defaultValue: '',
-          remainder: true
+          defaultValue: ''
         })
       ]
     });
   }
 
   run(msg, args, text) {
-    if (utility.String.isNullOrWhiteSpace(args.command)) {
+    if (String.isNullOrWhiteSpace(args.command)) {
       const groups = msg.client.registry.groups;
-      let allCommands = 'Here\'s all of the commands available:\n\n';
+      let allCommands = 'Here\'s all of the commands available:\n';
 
       for (let i = 0; i < groups.length; i++) {
         const groupCommands = groups[i].commands;
-        allCommands += utility.String.boldify(utility.String.upperFirstChar(groups[i].name)) + ': ';
+        allCommands += String.boldify(String.upperFirstChar(groups[i].name)) + ': ';
 
         for (let k = 0; k < groupCommands.length; k++) {
-          allCommands += utility.String.upperFirstChar(groupCommands[k].names[0]) + ', ';
+          allCommands += String.upperFirstChar(groupCommands[k].names[0]) + ', ';
         }
 
-        allCommands = allCommands.substring(0, allCommands.length - 2);
-        allCommands += '\n\n';
+        allCommands = allCommands.substring(0, allCommands.length - 2) + '\n';
       }
 
-      const prefix = msg.dbGuild.settings.prefix;
-      return text.send(allCommands + "\n\nThe command prefix for this guild is `" + prefix + "`.\n\nUse `" + prefix + "help <command>` to view a command's details.");
+      const prefix = msg.guild !== null ? msg.dbGuild.settings.prefix : Constants.DEFAULT_PREFIX;
+
+      return text.send(allCommands + '\n\nThe command prefix ' + (msg.guild !== null ? 'for this guild' : '') + ' is ' + prefix + '.\n\nUse `' + prefix + 'help <command>` to view a command\'s details.');
     }
 
     const lowerInput = args.command.toLowerCase();
-    const command = msg.client.registry.commands.find(c => c.names.includes(lowerInput));
+    const command = msg.client.registry.commands.find(c => c.names.some(x => x.toLowerCase() === lowerInput));
 
     if (command === undefined) {
       return text.sendError('This command doesn\'t exist.');
     }
 
-    const aliases = utility.String.list(command.names.map(i => utility.String.upperFirstChar(i)), '`', '`');
-    let commandInfo = (aliases.length === 1 ? '' : '\n**Aliases**: ' + aliases) + '\n**Description**: `' + command.description +  '`\n**Usage**: `' + (msg.guild !== null ? msg.dbGuild.settings.prefix : utility.Constants.defaultPrefix) + command.getUsage() + '`\n**Example**: `' + (msg.guild !== null ? msg.dbGuild.settings.prefix : utility.Constants.defaultPrefix) + command.getExample() + '`';
+    const aliases = String.list(command.names.map(i => String.upperFirstChar(i)), '`', '`');
+    const commandInfo = (aliases.length === 1 ? '' : '\n**Aliases**: ' + aliases) + '\n**Description**: `' + command.description + '`\n**Usage**: `' + (msg.guild !== null ? msg.dbGuild.settings.prefix : Constants.DEFAULT_PREFIX) + command.getUsage() + '`\n**Example**: `' + (msg.guild !== null ? msg.dbGuild.settings.prefix : Constants.DEFAULT_PREFIX) + command.getExample() + '`';
 
-    return text.send(commandInfo, { title: utility.String.upperFirstChar(command.names[0]) + ' - ' + utility.String.upperFirstChar(command.group.name) });
+    return text.send(commandInfo, { title: String.upperFirstChar(command.names[0]) + ' - ' + String.upperFirstChar(command.group.name) });
   }
 }
 

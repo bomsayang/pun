@@ -1,5 +1,5 @@
-const { Command, Argument } = require('patron.js');
-const utility = require('../../utility');
+const { Command, Argument, Context } = require('patron.js');
+const String = require('../../utility/String.js');
 
 class Groups extends Command {
   constructor() {
@@ -7,7 +7,7 @@ class Groups extends Command {
       names: ['groups', 'group', 'modules', 'module', 'categories', 'category'],
       groupName: 'member',
       description: 'All of the current command groups',
-      guildOnly: false,
+      usableContexts: [Context.Guild, Context.DM],
       args: [
         new Argument({
           key: 'group',
@@ -25,9 +25,9 @@ class Groups extends Command {
     const groups = msg.client.registry.groups;
     let groupInfo = '';
 
-    if (utility.String.isNullOrWhiteSpace(args.group)) {
+    if (String.isNullOrWhiteSpace(args.group)) {
       for (let i = 0; i < groups.length; i++) {
-        groupInfo += utility.String.upperFirstChar(groups[i].name) + ', ';
+        groupInfo += String.upperFirstChar(groups[i].name) + ', ';
       }
 
       return text.send(groupInfo.substring(0, groupInfo.length - 2), { title: 'The Current Groups:' });
@@ -41,10 +41,10 @@ class Groups extends Command {
     }
 
     for (let i = 0; i < group.commands.length; i++) {
-      groupInfo += utility.String.upperFirstChar(group.commands[i].names[0]) + ', ';
+      groupInfo += String.upperFirstChar(group.commands[i].names[0]) + ', ';
     }
 
-    return text.send(groupInfo.substring(0, groupInfo.length - 2), { title: utility.String.upperFirstChar(group.name) + '\'s Commands:' });
+    return text.send(groupInfo.substring(0, groupInfo.length - 2), { title: String.upperFirstChar(group.name) + '\'s Commands:' });
   }
 }
 

@@ -1,16 +1,16 @@
-const utility = require('../utility/');
 const client = require('../structures/Client.js');
-const db = client.db;
+const Constants = require('../utility/Constants.js');
+const ModerationService = require('../services/ModerationService.js');
 
 client.setInterval(async () => {
-  const mutes = await db.muteRepo.findMany();
+  const mutes = await client.db.muteRepo.findMany();
 
   for (let i = 0; i < mutes.length; i++) {
     if (mutes[i].mutedAt + mutes[i].muteLength > Date.now()) {
       continue;
     }
 
-    await db.muteRepo.deleteById(mutes[i]._id);
+    await client.db.muteRepo.deleteById(mutes[i]._id);
 
     const guild = client.guilds.get(mutes[i].guildId);
 
@@ -24,7 +24,7 @@ client.setInterval(async () => {
       continue;
     }
 
-    const dbGuild = await db.guildRepo.getGuild(guild.id);
+    const dbGuild = await client.db.guildRepo.getGuild(guild.id);
     const role = guild.roles.get(dbGuild.roles.muted);
 
     if (role === undefined) {
@@ -36,5 +36,8 @@ client.setInterval(async () => {
     }
 
     await member.removeRole(role);
+    await ModerationService.tryInformUser(guild, client.user, 'automatically unmuted', member.user);
+
+    return ModerationService.tryModLog(dbGuild, guild, 'Automatic Unmute', Constants.EMBED_COLORS.UNMUTE , '', null, member.user);
   }
-}, utility.Constants.intervals.autoUnmute);
+}, Constants.INTERVALS.AUTO_UNMUTE);

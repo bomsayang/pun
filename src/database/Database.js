@@ -31,9 +31,9 @@ class Database {
   }
 
   async init(url) {
-    const database = await MongoClient.connect(url);
-    const dbName = database.s.options.dbName;
-    const db = database.db(dbName);
+    const connection = await MongoClient.connect(url);
+    const dbName = connection.s.options.dbName;
+    const db = connection.db(dbName);
 
     this.guildRepo = new GuildRepo(await db.createCollection('guilds'));
     this.muteRepo = new MuteRepo(await db.createCollection('mutes'));
@@ -41,7 +41,7 @@ class Database {
     this.userRepo = new UserRepo(await db.createCollection('users'));
     this.globalUserRepo = new GlobalUserRepo(await db.createCollection('globalusers'));
 
-    await db.collection('guilds').createIndex('guildId', { unique: true });
+    return db.collection('guilds').createIndex('guildId', { unique: true });
   }
 }
 

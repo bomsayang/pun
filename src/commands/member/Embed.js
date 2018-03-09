@@ -1,4 +1,4 @@
-const { Command, Argument } = require('patron.js');
+const { Command, Argument, Context } = require('patron.js');
 
 class Embed extends Command {
   constructor() {
@@ -6,7 +6,7 @@ class Embed extends Command {
       names: ['embed'],
       groupName: 'member',
       description: 'Embeds the text you provide.',
-      guildOnly: false,
+      usableContexts: [Context.Guild, Context.DM],
       args: [
         new Argument({
           key: 'text',
@@ -28,7 +28,7 @@ class Embed extends Command {
       }
     };
 
-    return text.send(args.text, options)
+    return text.send(args.text, options);
   }
 }
 

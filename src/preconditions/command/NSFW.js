@@ -8,7 +8,7 @@ class NSFW extends Precondition {
   }
 
   run(cmd, msg) {
-    if (msg.channel.nsfw !== false) {
+    if (msg.channel.nsfw) {
       return PreconditionResult.fromSuccess();
     }
 

@@ -6,14 +6,14 @@ class OwnSkillPoints extends ArgumentPrecondition {
       name: 'ownskillpoints'
     });
   }
-  
-  async run(cmd, msg, arg, args, value) {
+
+  async run(cmd, msg, arg, args) {
     const quantity = args.quantity !== undefined ? args.quantity : 1;
 
     if (msg.dbUser.skillPoints >= quantity) {
       return PreconditionResult.fromSuccess();
     }
-    
+
     return PreconditionResult.fromError(cmd, 'You do not have ' + quantity + ' skill points.');
   }
 }

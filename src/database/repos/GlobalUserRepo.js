@@ -1,5 +1,4 @@
 const BaseRepo = require('./BaseRepo.js');
-const SetNewXpNeeded = require('../updates/SetNewXpNeeded.js');
 const GlobalUserQuery = require('../queries/GlobalUserQuery.js');
 const GlobalUser = require('../models/GlobalUser.js');
 
@@ -40,13 +39,13 @@ class GlobalUserRepo extends BaseRepo {
   }
 
   async modifyXP(member, change) {
-    const newDbUser = await this.findUserAndUpsert(member.id, { $inc: { 'xp': change } });
+    const newDbUser = await this.findUserAndUpsert(member.id, { $inc: { xp: change } });
 
     return newDbUser;
   }
 
   async modifyLevel(member, change) {
-    const newDbUser = await this.findUserAndUpsert(member.id, { $inc: { 'level': change } });
+    const newDbUser = await this.findUserAndUpsert(member.id, { $inc: { level: change } });
 
     return newDbUser;
   }

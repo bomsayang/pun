@@ -1,16 +1,15 @@
-const utility = require('../utility/');
 const client = require('../structures/Client.js');
-const db = client.db;
+const { Constants, Text, Utils } = require('../utility/');
 
 client.setInterval(async () => {
-  const polls = await db.pollRepo.findMany();
+  const polls = await client.db.pollRepo.findMany();
 
   for (let i = 0; i < polls.length; i++) {
-    if ((Date.now() - polls[i].createdAt) - polls[i].length <= 0) {
+    if (Date.now() - polls[i].createdAt - polls[i].length <= 0) {
       continue;
     }
 
-    await db.pollRepo.deleteById(polls[i]._id);
+    await client.db.pollRepo.deleteById(polls[i]._id);
 
     const guild = client.guilds.get(polls[i].guildId);
 
@@ -30,6 +29,6 @@ client.setInterval(async () => {
       choices += '`' + key + '` Votes: ' + polls[i].choices[key] + ', ';
     }
 
-    await creator.user.tryDM(choices.substring(0, choices.length - 2) + 'Final Poll Results Of `' + polls[i].name + '` Poll In Server `' + guild.name + '`.');
+    return Utils.try(Text.createEmbed(creator.user, choices.substring(0, choices.length - 2), { title: 'Results of the poll ' + polls[i].name, footer: { text: guild.name, icon: guild.iconURL } }));
   }
-}, utility.Constants.intervals.autoRemovePoll);
+}, Constants.INTERVALS.AUTO_REMOVE_POLL);

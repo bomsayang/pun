@@ -1,4 +1,4 @@
-const { ArgumentPrecondition, PreconditionResult} = require('patron.js');
+const { ArgumentPrecondition, PreconditionResult } = require('patron.js');
 const utility = require('../../utility');
 
 class Kickable extends ArgumentPrecondition {
@@ -8,7 +8,7 @@ class Kickable extends ArgumentPrecondition {
     });
   }
 
-  run(cmd, msg, arg, args, value, options) {
+  run(cmd, msg, arg, args, value) {
     const userTag = value.tag !== undefined ? value.tag : value.user.tag;
 
     if (value.kickable === false) {

@@ -35,7 +35,7 @@ class Ban extends Command {
     }
 
     await msg.guild.ban(args.user, args.reason);
-    await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Ban', Constants.embedColors.ban, args.reason, msg.author, args.user);
+    await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Ban', Constants.EMBED_COLORS.BAN, args.reason, msg.author, args.user);
 
     return text.send('Successfully banned ' + args.user.tag + '.' + (args.reason.length === 0 ? '' : '\n**Reason**: ' + args.reason));
   }

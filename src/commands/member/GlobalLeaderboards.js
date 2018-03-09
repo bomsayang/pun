@@ -1,5 +1,5 @@
 const { Command } = require('patron.js');
-const utility = require('../../utility/');
+const { Constants, String } = require('../../utility/');
 
 class GlobalLeaderboards extends Command {
   constructor() {
@@ -18,7 +18,7 @@ class GlobalLeaderboards extends Command {
     let message = '';
 
     for (let i = 0; i < users.length; i++) {
-      if (i + 1 > utility.Constants.leaderboardCap) {
+      if (i + 1 > Constants.LEADERBOARD_CAP) {
         break;
       }
 
@@ -28,10 +28,10 @@ class GlobalLeaderboards extends Command {
         continue;
       }
 
-      message += (i + 1) + '. ' + utility.String.boldify(user.tag) + ': **XP:** ' + users[i].xp + ' **Level:** ' + users[i].level + '\n';
+      message += i + 1 + '. ' + String.boldify(user.tag) + ': **XP:** ' + users[i].xp + ' **Level:** ' + users[i].level + '\n';
     }
 
-    if (utility.String.isNullOrWhiteSpace(message) === true) {
+    if (String.isNullOrWhiteSpace(message) === true) {
       return text.sendError('There is nobody on the leaderboards.');
     }
 

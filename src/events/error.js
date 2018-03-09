@@ -1,7 +1,12 @@
 const client = require('../structures/Client.js');
-const logger = require('cus-log');
+const Logger = require('../utility/Logger.js');
 
 client.on('error', err => {
-  client.channels.get('385529629626335234').send('An error occured! ' + err);
-  logger.log(3, 'Error! ' + err + '.');
+  const bugsChannel = client.channels.get('385529629626335234');
+
+  if (bugsChannel !== undefined) {
+    bugsChannel.send('An error occured! ' + err);
+  }
+
+  Logger.log('Error emitted from client:\n' + err);
 });

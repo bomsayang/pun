@@ -1,5 +1,5 @@
 const { TypeReader, TypeReaderResult } = require('patron.js');
-const Constants = require('../utility/Constants.js')
+const Constants = require('../utility/Constants.js');
 
 class SkillChoiceReader extends TypeReader {
   constructor() {
@@ -7,7 +7,7 @@ class SkillChoiceReader extends TypeReader {
   }
 
   async read(command, message, argument, args, input) {
-    if(Constants.skills.includes(input.toLowerCase())) {
+    if (Constants.SKILLS.includes(input.toLowerCase())) {
       return TypeReaderResult.fromSuccess(input.toLowerCase());
     }
 

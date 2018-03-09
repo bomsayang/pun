@@ -1,5 +1,6 @@
 const { Client: DiscordJSClient } = require('discord.js');
 const Constants = require('../utility/Constants.js');
+const Logger = require('../utility/Logger.js');
 const Database = require('../database/Database.js');
 const credentials = require('./../../credentials.json');
 
@@ -11,8 +12,7 @@ class Client extends DiscordJSClient {
       messageCacheMaxSize: 5,
       messageCacheLifetime: 10,
       messageSweepInterval: 1800,
-      disabledEvents: Constants.disabledEvents,
-      token: credentials.token
+      disabledEvents: Constants.DISABLED_EVENTS
     });
 
     this.config = config;
@@ -20,8 +20,8 @@ class Client extends DiscordJSClient {
   }
 
   init() {
-    return this.login(credentials.token).catch(err => console.error(err));
+    return this.login(this.config.token).catch(err => Logger.error(err));
   }
 }
 
-module.exports = new Client();
+module.exports = new Client(credentials);

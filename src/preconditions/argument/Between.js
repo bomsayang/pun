@@ -1,4 +1,4 @@
-const { ArgumentPrecondition, PreconditionResult} = require('patron.js');
+const { ArgumentPrecondition, PreconditionResult } = require('patron.js');
 
 class Between extends ArgumentPrecondition {
   constructor() {

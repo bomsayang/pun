@@ -1,5 +1,4 @@
 const BaseRepo = require('./BaseRepo.js');
-const SetNewXpNeeded = require('../updates/SetNewXpNeeded.js');
 const UserQuery = require('../queries/UserQuery.js');
 const User = require('../models/User.js');
 
@@ -40,19 +39,19 @@ class UserRepo extends BaseRepo {
   }
 
   async modifyXP(dbGuild, member, change) {
-    const newDbUser = await this.findUserAndUpsert(member.id, dbGuild.guildId, { $inc: { 'xp': change } });
+    const newDbUser = await this.findUserAndUpsert(member.id, dbGuild.guildId, { $inc: { xp: change } });
 
     return newDbUser;
   }
 
   async modifySkillPoints(dbGuild, member, change) {
-    const newDbUser = await this.findUserAndUpsert(member.id, dbGuild.guildId, { $inc: { 'skillPoints': change } });
-    
+    const newDbUser = await this.findUserAndUpsert(member.id, dbGuild.guildId, { $inc: { skillPoints: change } });
+
     return newDbUser;
   }
 
   async modifyLevel(dbGuild, member, change) {
-    const newDbUser = await this.findUserAndUpsert(member.id, dbGuild.guildId, { $inc: { 'level': change } });
+    const newDbUser = await this.findUserAndUpsert(member.id, dbGuild.guildId, { $inc: { level: change } });
 
     return newDbUser;
   }
@@ -62,7 +61,7 @@ class UserRepo extends BaseRepo {
   }
 
   deleteUsers(guildId) {
-    return this.deleteMany({ guildId: guildId });
+    return this.deleteMany({ guildId });
   }
 }
 

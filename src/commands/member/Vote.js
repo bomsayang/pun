@@ -1,6 +1,6 @@
 const { Command, Argument } = require('patron.js');
+const { Number, Constants } = require('../../utility/');
 const ModerationService = require('../../services/ModerationService.js');
-const utility = require('../../utility/');
 
 class Vote extends Command {
   constructor() {
@@ -27,8 +27,9 @@ class Vote extends Command {
   }
 
   async run(msg, args, text) {
-    const elderDays = utility.Number.msToTime(utility.Constants.polls.elderTimeRequired).days;
-    if (args.poll.elderOnly === true && msg.member.joinedAt - Date.now() > utility.Constants.polls.elderTimeRequired) {
+    const elderDays = Number.msToTime(Constants.POLLS.ELDER_TIME_REQUIRED).days;
+
+    if (args.poll.elderOnly === true && msg.member.joinedAt - Date.now() > Constants.POLLS.ELDER_TIME_REQUIRED) {
       return text.sendError('You may not vote on this poll until you\'ve been in this server for ' + elderDays + ' days.');
     } else if (args.poll.modOnly === true && ModerationService.getPermLevel(msg.dbGuild, msg.guild.member(msg.author)) === 0) {
       return text.sendError('You may only vote on this poll if you\'re a moderator.');
@@ -37,8 +38,10 @@ class Vote extends Command {
     }
 
     const votedChoice = 'choices.' + args.choice;
+
     await msg.client.db.pollRepo.updatePoll(args.poll.name, args.poll.creatorId, msg.guild.id, { $inc: { [votedChoice]: 1 } });
     await msg.client.db.pollRepo.updatePoll(args.poll.name, args.poll.creatorId, msg.guild.id, { $push: { voters: msg.author.id } });
+
     return text.reply('You\'ve successfully voted `' + args.choice + '` on poll: `' + args.poll.name + '`.');
   }
 }

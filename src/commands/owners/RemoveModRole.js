@@ -19,7 +19,7 @@ class RemoveModRole extends Command {
   }
 
   async run(msg, args, text) {
-    if (msg.dbGuild.roles.mod.some((role) => role.id === args.role.id) === false) {
+    if (msg.dbGuild.roles.mod.some(role => role.id === args.role.id) === false) {
       return text.sendError('You may not remove a moderation role that has no been set.');
     }
 

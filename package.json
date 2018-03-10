@@ -1,7 +1,7 @@
 {
   "name": "pixel",
-  "version": "1.7.0",
-  "description": "A free to use, open-source and powerful bot, written in Discord.js",
+  "version": "2.0.0",
+  "description": "An open-source Discord bot, written with: Library: Discord.js, Framework: Patron.js",
   "main": "src/app.js",
   "scripts": {
     "lint": "eslint --fix src/**",
@@ -12,21 +12,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lumitedubbz/pixel.git"
+    "url": "git+https://github.com/LumiteDubbz/Pixel.git"
   },
   "keywords": [
-    "discord.js",
+    "discord-js",
+    "patron-js",
+    "discord-bot",
     "discord",
-    "javascript",
-    "pixel",
-    "patron.js"
+    "javascript"
   ],
   "author": "Lumite#1234",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lumitedubbz/pixel/issues"
+    "url": "https://github.com/LumiteDubbz/Pixel/issues"
   },
-  "homepage": "https://github.com/lumitedubbz/pixel#readme",
+  "homepage": "https://github.com/LumiteDubbz/Pixel#readme",
   "dependencies": {
     "discord.js": "^11.3.2",
     "mongodb": "^3.0.1",

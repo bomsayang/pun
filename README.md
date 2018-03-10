@@ -1,19 +1,19 @@
 <h1>
-	<img src="https://github.com/LumiteDubbz/Pixel/blob/master/old_docs/assets/icon.png?raw=true" width="32"/>
+	<img src="https://cdn.discordapp.com/avatars/377886472017149953/4e6173f2d5a9db26962ae538e7a729db.jpg" width="32"/>
 	Pixel
 </h1>
 
-[![Guild](https://discordapp.com/api/guilds/384419408111730689/embed.png)](https://discord.me/pixelsupport) [![Dependencies](https://david-dm.org/LumiteDubbz/Pixel.svg)](https://david-dm.org/LumiteDubbz/Pixel) [![Optional Dependencies](https://david-dm.org/LumiteDubbz/Pixel/optional-status.svg)](https://david-dm.org/LumiteDubbz/Pixel?type=optional) [![Build Status](https://travis-ci.org/LumiteDubbz/Pixel.svg?branch=master)](https://travis-ci.org/LumiteDubbz/Pixel)
+[![Guild](https://discordapp.com/api/guilds/384419408111730689/embed.png)](https://discord.me/pixelsupport) [![Dependencies](https://david-dm.org/LumiteDubbz/Pixel.svg)](https://david-dm.org/LumiteDubbz/Pixel) [![Optional Dependencies](https://david-dm.org/LumiteDubbz/Pixel/optional-status.svg)](https://david-dm.org/LumiteDubbz/Pixel?type=optional)
 
 An open-source Discord bot, written with: Library: Discord.js, Framework: Patron.js
 
-Visit the <a href="https://github.com/LumiteDubbz/Pixel/wiki">Wiki</a> to learn how to setup the bot for yourself, as well as the requirements.
+Visit the <a href="https://pixel.js.org">Wiki</a> to learn how to setup the bot for yourself, as well as the requirements.
 
-<a href="https://lumitedubbz.github.io/Pixel/">Full Documentation</a>
+<a href="https://pixel.js.org">Full Documentation</a>
 
 # Support
 
-This can also be found on the <a href="https://github.com/LumiteDubbz/Pixel/wiki">Wiki</a>, but oh well, I'll put it here as well.
+This can also be found on the <a href="https://pixel.js.org">Wiki</a>, but oh well, I'll put it here as well.
 
 Although you <em>can</em> DM me on Twitter, the best place to get support is in the official Pixel Discord Server. Click <a href="https://discord.me/pixelsupport"><u>here</u></a> to join the <strong>Official Support Server</strong>.
 

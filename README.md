@@ -23,6 +23,7 @@ _What is Pixel?_
 
 Pixel is the most powerful Discord bot on the market. It features a global and server-sided XP and level-up systems which reward users with 'skill points.' Said 'skill points' can be used to buy and upgrade their fighting skills (magic, strength, etc.).
 
+<<<<<<< HEAD
 Pixel also features a highly advanced moderation system. The owner of the guild may grant individual roles different permission levels (1: Moderator, 2: Administrator, 3: Owner) that each have access to use specific commands.
 
 Pixel also has a variety of utility commands that can perform tasks such as setting the server's welcome message which will be DMed to new users. Administrators may also set the server's moderator action log channel which logs all moderation commands' uses. Administrators and Owners may also set a role to be automatically given to new members.
@@ -33,3 +34,6 @@ Finally, for all of you raunchy users out there, you can take advantage of Pixel
 ## Setup
 
 It's _very_ easy to do so. Just check the <a href="https://pixel.js.org/setup" target="_blank">Wiki Setup Page</a> and follow the simple steps.
+=======
+Pixel now has a guild-specific XP system, where users can level up and use the leaderboards command to compete to be at the top. We're also working on a <em>global</em> XP system which will include the top ten members from ALL guilds that Pixel is in.
+>>>>>>> 06cd89d57f7a825723a5aa6a241a09379a697486

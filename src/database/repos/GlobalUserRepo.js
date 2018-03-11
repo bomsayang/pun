@@ -44,9 +44,9 @@ class GlobalUserRepo extends BaseRepo {
     return newDbUser;
   }
 
-  async modifyDmPermissions(member, change) {
-    const newDbUser = await this.findUserAndUpsert(member.id, { $set: { dmPermission: change}})
-  }
+  // async modifyDmPermissions(member, change) {
+  //   const newDbUser = await this.findUserAndUpsert(member.id, { $set: { dmPermission: change}})
+  // }
 
   async modifyLevel(member, change) {
     const newDbUser = await this.findUserAndUpsert(member.id, { $inc: { level: change } });

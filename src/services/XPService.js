@@ -31,7 +31,7 @@ class XPService {
         }
 
         if (msg.dbUser.dmPermission !== false) {
-          await Text.createEmbed(msg.author, 'Congratulations, you\'ve ' + (newDbUser.level === LEVELS.length ? 'achieved the maximum level we currently have' : 'advanced to level ' + newDbUser.level) + (global === true ? ' globally' : '') + '!', { footer: global === true ? undefined : { text: msg.guild.name, icon: msg.guild.iconURL } });
+          await Text.createEmbed(msg.author, 'Congratulations, you\'ve ' + (newDbUser.level === LEVELS.length ? 'achieved the maximum level we currently have' : 'advanced to level ' + newDbUser.level) + (global === true ? ' globally' : '') + '!', { footer: global === true ? 'Want to disable DMs? Run the p!modifydms command.' : { text: msg.guild.name + ' | Want to disable DMs? Run the p!modifydms command.', icon: msg.guild.iconURL } });
         }
       }
       return global === true ? msg.client.db.globalUserRepo.modifyXP(msg.member, xpAmount) : msg.client.db.userRepo.modifyXP(msg.dbGuild, msg.member, xpAmount);

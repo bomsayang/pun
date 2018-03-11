@@ -30,7 +30,9 @@ class XPService {
           await msg.client.db.userRepo.modifySkillPoints(msg.dbGuild, msg.member, 2);
         }
 
-        await Text.createEmbed(msg.author, 'Congratulations, you\'ve ' + (newDbUser.level === LEVELS.length ? 'achieved the maximum level we currently have' : 'advanced to level ' + newDbUser.level) + (global === true ? ' globally' : '') + '!', { footer: global === true ? undefined : { text: msg.guild.name, icon: msg.guild.iconURL } });
+        if (msg.dbUser.dmPermission !== false) {
+          await Text.createEmbed(msg.author, 'Congratulations, you\'ve ' + (newDbUser.level === LEVELS.length ? 'achieved the maximum level we currently have' : 'advanced to level ' + newDbUser.level) + (global === true ? ' globally' : '') + '!', { footer: global === true ? undefined : { text: msg.guild.name, icon: msg.guild.iconURL } });
+        }
       }
       return global === true ? msg.client.db.globalUserRepo.modifyXP(msg.member, xpAmount) : msg.client.db.userRepo.modifyXP(msg.dbGuild, msg.member, xpAmount);
     }

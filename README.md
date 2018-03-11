@@ -1,39 +1,20 @@
-<h1>
-	<img src="https://cdn.discordapp.com/avatars/377886472017149953/4e6173f2d5a9db26962ae538e7a729db.jpg" width="32"/>
-	Pixel
-</h1>
-
-[![Guild](https://discordapp.com/api/guilds/384419408111730689/embed.png)](https://discord.me/pixelsupport) [![Dependencies](https://david-dm.org/LumiteDubbz/Pixel.svg)](https://david-dm.org/LumiteDubbz/Pixel) [![Optional Dependencies](https://david-dm.org/LumiteDubbz/Pixel/optional-status.svg)](https://david-dm.org/LumiteDubbz/Pixel?type=optional)
-
-An open-source Discord bot, written with: Library: Discord.js, Framework: Patron.js
-
-Visit the <a href="https://pixel.js.org">Wiki</a> to learn how to setup the bot for yourself, as well as the requirements.
-
-<a href="https://pixel.js.org">Full Documentation</a>
-
-## Support
-
-This can also be found on the <a href="https://pixel.js.org">Wiki</a>, but oh well, I'll put it here as well.
-
-Although you <em>can</em> DM me on Twitter, the best place to get support is in the official Pixel Discord Server. Click <a href="https://discord.me/pixelsupport"><u>here</u></a> to join the <strong>Official Support Server</strong>.
-
-## Features
-
-_What is Pixel?_
-
-Pixel is the most powerful Discord bot on the market. It features a global and server-sided XP and level-up systems which reward users with 'skill points.' Said 'skill points' can be used to buy and upgrade their fighting skills (magic, strength, etc.).
-
-<<<<<<< HEAD
-Pixel also features a highly advanced moderation system. The owner of the guild may grant individual roles different permission levels (1: Moderator, 2: Administrator, 3: Owner) that each have access to use specific commands.
-
-Pixel also has a variety of utility commands that can perform tasks such as setting the server's welcome message which will be DMed to new users. Administrators may also set the server's moderator action log channel which logs all moderation commands' uses. Administrators and Owners may also set a role to be automatically given to new members.
-
-Finally, for all of you raunchy users out there, you can take advantage of Pixel's NSFW commands. But faint-hearted people, never fear, NSFW commands can only be used in Discord channels marked as NSFW.
-<br>
-
+# Pixel [![Guild](https://discordapp.com/api/guilds/384419408111730689/embed.png)](https://discord.me/pixelsupport) [![Dependencies](https://david-dm.org/LumiteDubbz/Pixel.svg)](https://david-dm.org/LumiteDubbz/Pixel) [![Optional Dependencies](https://david-dm.org/LumiteDubbz/Pixel/optional-status.svg)](https://david-dm.org/LumiteDubbz/Pixel?type=optional)
+An open-source **Discord bot**, written with: Library: **Discord.js**, Framework: **Patron.js**<br>Full documentation <a href="https://pixel.js.org" target="_blank">here</a>.
 ## Setup
-
-It's _very_ easy to do so. Just check the <a href="https://pixel.js.org/setup" target="_blank">Wiki Setup Page</a> and follow the simple steps.
-=======
-Pixel now has a guild-specific XP system, where users can level up and use the leaderboards command to compete to be at the top. We're also working on a <em>global</em> XP system which will include the top ten members from ALL guilds that Pixel is in.
->>>>>>> 06cd89d57f7a825723a5aa6a241a09379a697486
+- Please refer to the **setup documentation** <a href="https://pixel.js.org/setup" target="_blank">here</a>.
+## Support
+- Join the **Official Support Server** <a href="https://discordapp.com/invite/rbeYmMp" target="_blank">here</a>.
+- **Create an issue** on GitHub <a href="https://github.com/LumiteDubbz/Pixel/issues/new?title=%22Support%22" target="_blank">here.</a>
+- **Email** me <a href="mailto:LumiteDubbz@gmail.com?Subject=Pixel%20support">here.</a>
+## Features
+- Advanced **moderation commands**.
+- Customisable **administration commands**, such as **welcome messages**.
+- Server-sided and global **XP and level up system**, offering skill points as rewards.
+- Said 'skill points' can be used to **upgrade the user's skills** such as **fighting**, **magic** and more!
+- Powerful **auto-moderation features** than can be enabled and disabled.
+- **NSFW commands** 😈
+- Simple utility commands like **auto-role**.
+## Contributions
+- Contributions are welcome, but please **do not get offended if your changes are denied**.
+- To contribute, simply **fork Pixel** <a href="https://github.com/LumiteDubbz/Pixel/fork" target="_blank">here</a>.<br>**Make your changes**.<br>**Commit** to **your fork**.<br>**Create** a **pull request** <a href="https://github.com/LumiteDubbz/Pixel/compare" target="_blank">here</a>.
+- Be sure to **add your DiscordName#1234** and a **brief description** of your contribution to the `contributors.json` file.

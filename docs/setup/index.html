@@ -26,7 +26,7 @@
     var mkdocs_page_url = "/setup/";
   </script>
 
-  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/jquery-2.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
   <script type="text/javascript" src="../js/highlight.pack.js"></script>
 
@@ -107,37 +107,27 @@
                   <a href="https://Discord.me/PixelSupport">Official Support Server.</u>
                 </a>
               </p>
-              1. Click
-              <a href="https://github.com/LumiteDubbz/Pixel">
-                <u>here</u>
-              </a> to go to the repository. 2. Click the green "Clone or download" button and select Download ZIP.
+              <br> 1. Install NodeJS and Git for your OS.
               <br>
-              <br> 3. Save it to somewhere easy to access, like Desktop. For a Linux VPS, use something like WinSCP to drag-and-drop
-              the ZIP file.
+              <br> 2. Run <code>git clone https://github.com/LumiteDubbz/Pixel</code> in your terminal.
               <br>
-              <br> 4. Extract the file (find a tutorial for your Operating System).
-              <br>
-              <br> 5. Install NodeJS and Git for your OS.
-              <br>
-              <br> 6. Go into the <code>scripts</code> folder, choose your OS and run the <code>install-deps</code> file.
-              <br>
-              <br> 7. Rename the <code>credentials_example.json</code> file to <code>credentials.json</code> and edit the file. Change the "token"
+              <br> 3. Rename the <code>credentials_example.json</code> file to <code>credentials.json</code> and edit the file. Change the "token"
               to your bot's token. You can also change the prefix if you don't like the default one. Paste your ID in the
               "botOwners" section. To do this, go into Discord, go to Settings go to Appearance and enable the "Developer
               Mode". Then, right click your user account and click "copy ID".
               <br>
-              <br> 8. Finally, and here's the tricky part, go to https://mlab.com and register an account on the "free" tier.
+              <br> 4. Finally, and here's the tricky part, go to https://mlab.com and register an account on the "free" tier.
               Create a database. Once it is created, go to the database and click <code>users</code>. Click <code>create new user</code> and name
               it something memorable like "admin". Add a super secure password and
               <strong>DO NOT</strong> click "view only" as that will prevent the bot from being able to edit and create files. Edit
               the <code>credentials.json</code> file to make it suit your database, for example: "mongodb://admin:s3cur3_p455w0rd@fg187251.mlab.com:94294/super-cool-bot".
               Save the file.
               <br>
-              <br> 9. To start the bot, go back into the <code>scripts</code> folder, choose the OS and then execute the <code>start</code> files.
-              TIP: If you're using a command line-based VPS, type <code>cd Pixel-master</code> from @root, then <code>node src/app.js</code>. If
-              you want the bot to stay online without the SSH app being open, type <code>screen -s pixel node src/app.js</code>.
+              <br> 5. To start the bot, go back into the <code>scripts</code> folder, choose the OS and then execute the <code>start</code> files.
+              TIP: If you're using a command line-based VPS, type <code>cd Pixel-master</code> from root Pixel folder, then <code>node src/app.js</code>. If
+              you want the bot to stay online without the SSH app being open, type <code>screen -s pixel node src/app.js</code> (requires <code>screen</code>, available from most package managers).
               <br>
-              <br> 10. The bot
+              <br> 6. The bot
               <em>should</em> start, if it doesn't, tell us your error in the
               <a href="https://github.com/LumiteDubbz/Pixel/issues">
                 <u>issues</u>

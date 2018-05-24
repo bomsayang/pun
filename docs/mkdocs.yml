@@ -1,6 +1,8 @@
 site_name: Pixel
-repo_url: https://github.com/RealBlazeIt/DEA
+repo_url: https://github.com/LumiteDubbz/Pixel
+theme: cinder
 pages:
-    - Home: index.md
+    - Index: index.md
     - Setup: setup.md
     - Commands: commands.md
+    - Downloads: downloads.md

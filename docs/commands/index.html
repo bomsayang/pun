@@ -1,594 +1,175 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../img/favicon.ico">
 
+    <title>Commands - Pixel</title>
 
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Pixel | Commands</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet'
-    type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
 
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Commands";
-    var mkdocs_page_input_path = "commands.md";
-    var mkdocs_page_url = "/commands/";
-  </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
 
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-
+    
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
 
-  <div class="wy-grid-for-nav">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
 
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
 
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Pixel</a>
-      </div>
+            <!-- Main title -->
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
-
-
-          <li class="toctree-l1">
-
-            <a class="" href="..">Home</a>
-          </li>
-
-          <li class="toctree-l1">
-
-            <a class="" href="../setup/">Setup</a>
-          </li>
-
-          <li class="toctree-l1 current">
-
-            <a class="current" href="./">Commands</a>
-            <ul class="subnav">
-
-              <li class="toctree-l2">
-                <a href="#table-of-contents">Table Of Contents</a>
-              </li>
-
-              <ul>
-
-                <li>
-                  <a class="toctree-l3" href="#administration">Administration</a>
-                </li>
-
-                <li>
-                  <a class="toctree-l3" href="#botowners">Botowners</a>
-                </li>
-
-                <li>
-                  <a class="toctree-l3" href="#general">General</a>
-                </li>
-
-                <li>
-                  <a class="toctree-l3" href="#nsfw">NSFW</a>
-                </li>
-
-                <li>
-                  <a class="toctree-l3" href="#owners">Owners</a>
-                </li>
-
-                <li>
-                  <a class="toctree-l3" href="#moderators">Moderators</a>
-                </li>
-
-              </ul>
-
-
-            </ul>
-          </li>
-
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Pixel</a>
-      </nav>
-
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-            <ul class="wy-breadcrumbs">
-              <li>
-                <a href="..">Docs</a> &raquo;</li>
-
-
-
-              <li>Commands</li>
-              <li class="wy-breadcrumbs-aside">
-
-                <a href="https://github.com/LumiteDubbz/Pixel/edit/master/docs/commands.md" class="icon icon-github"> Edit on GitHub</a>
-
-              </li>
-            </ul>
-            <hr/>
-          </div>
-          <div role="main">
-            <div class="section">
-
-              <p>All commands are catagorized by groups. Each of the following sections is a group.</p>
-              <p>The syntax of the command usage is:</p>
-              <p>
-                <code>Optional paramater: []</code>
-              </p>
-              <p>
-                <code>Required paramater: &lt;&gt;</code>
-              </p>
-              <h2 id="table-of-contents">Table Of Contents</h2>
-              <ul>
-                <li>
-                  <a href="#administration">Administration</a>
-                </li>
-                <li>
-                  <a href="#botowners">Botowners</a>
-                </li>
-                <li>
-                  <a href="#general">General</a>
-                </li>
-                <li>
-                  <a href="#nsfw">NSFW</a>
-                </li>
-                <li>
-                  <a href="#owners">Owners</a>
-                </li>
-                <li>
-                  <a href="#moderators">Moderators</a>
-                </li>
-              </ul>
-              <h3 id="administration">Administration</h3>
-              <p>Commands that only work for server administrators.</p>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Usage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Setwelcomemessage</td>
-                    <td>Set the server's welcome message.</td>
-                    <td>
-                      <code>p!setwelcomemessage &lt;message&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Disablewelcomemessage</td>
-                    <td>Disable the server's welcome message.</td>
-                    <td>
-                      <code>p!disablewelcomemessage</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Setmodlog</td>
-                    <td>Set the channel for all moderator actions to be logged in.</td>
-                    <td>
-                      <code>p!setmodlog &lt;#channel&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>SetPrefix</td>
-                    <td>Set the command prefix for the server.</td>
-                    <td>
-                      <code>p!setprefix &lt;prefix&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Setmutedrole</td>
-                    <td>Set the muted role for the server.</td>
-                    <td>
-                      <code>p!setmutedrole &lt;@role&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Setautorole</td>
-                    <td>Set the role to be automatically given to new members.</td>
-                    <td>
-                      <code>p!setautorole &lt;role&gt;</code>&ThickSpace;NOTE: You do not have to ping the role.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Disableautorole</td>
-                    <td>Disable the guild's autorole.</td>
-                    <td>
-                      <code>p!disableautorole</code>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 id="botowners">Botowners</h3>
-              <p>Commands that only work for the creator(s) of Pixel.</p>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Usage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Eval</td>
-                    <td>Evaluate JavaScript code.</td>
-                    <td>
-                      <code>p!eval &lt;code&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Exec</td>
-                    <td>Execute batch/bash script.</td>
-                    <td>
-                      <code>p!exec &lt;code&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Setgame</td>
-                    <td>Sets the bot's playing game status.</td>
-                    <td>
-                      <code>p!setgame &lt;game&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kill</td>
-                    <td>Terminates the Node process (turns the bot off).</td>
-                    <td>
-                      <code>p!kill</code>&ThickSpace;NOTE: Pixel will ask for confirmation when using this command.</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 id="general">General (Member group)</h3>
-              <p>General random commands for members.</p>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Usage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Groups</td>
-                    <td>View the command groups in Pixel.</td>
-                    <td>
-                      <code>p!groups</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Createpoll</td>
-                    <td>Create a poll.</td>
-                    <td>
-                      <code>p!createpoll &lt;nameOfPoll&gt; &lt;choice1~choice2&gt; &lt;daysToLast&gt; &lt;true/false&gt; &lt;true/false&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Embed</td>
-                    <td>Embed the provided text.</td>
-                    <td>
-                      <code>p!embed &lt;text&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>48yearman</td>
-                    <td>Say the famous 48 year man from somalia copypasta.</td>
-                    <td>
-                      <code>p!48yearman</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Globalxp</td>
-                    <td>View your/anyone else's global XP.</td>
-                    <td>
-                      <code>p!globalxp [@member]</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Globalleaderboard</td>
-                    <td>View the highest levelled users globally.</td>
-                    <td>
-                      <code>p!globallb</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Help</td>
-                    <td>View all commands.</td>
-                    <td>
-                      <code>p!help [rule]</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Info</td>
-                    <td>View your/anyone else's XP.</td>
-                    <td>
-                      <code>p!xp [@member]</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Invite</td>
-                    <td>View the Support Server invite link, the GitHub link and the bot invite link.</td>
-                    <td>
-                      <code>p!invite</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Leaderboard</td>
-                    <td>View the highest levelled members.</td>
-                    <td>
-                      <code>p!lb</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Modroles</td>
-                    <td>View the server's moderator roles.</td>
-                    <td>
-                      <code>p!modroles</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ping</td>
-                    <td>View the message and heartbeat latency.</td>
-                    <td>
-                      <code>p!ping</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Poll</td>
-                    <td>View the info of a specific poll.</td>
-                    <td>
-                      <code>p!poll &lt;pollNumber&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Removepoll</td>
-                    <td>Remove a poll (if you're the creator of it.)</td>
-                    <td>
-                      <code>p!removepoll &lt;pollNumber&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Reply</td>
-                    <td>Check if the bot is online.</td>
-                    <td>
-                      <code>p!reply</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Skills</td>
-                    <td>View your/anyone else's skills.</td>
-                    <td>
-                      <code>p!skills [@member]</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Statistics</td>
-                    <td>View Pixel's statistics (uptime, etc.)</td>
-                    <td>
-                      <code>p!statistics</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Upgradeskill</td>
-                    <td>Upgrade a/multiple skills.</td>
-                    <td>
-                      <code>p!upgrade &lt;skill(s)&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Vote</td>
-                    <td>Vote on a poll.</td>
-                    <td>
-                      <code>p!vote &lt;poll&gt; &lt;choice&gt;</code>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 id="nsfw">NSFW</h3>
-              <p>These are the NSFW commands.</p>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Usage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Ass</td>
-                    <td>Shows you a thicc ass!</td>
-                    <td>
-                      <code>p!ass</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Tits</td>
-                    <td>View some titties!</td>
-                    <td>
-                      <code>p!tits</code>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 id="owners">Owners</h3>
-              <p>These commands only work for server owners.</p>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Usage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Addmodrole</td>
-                    <td>Add a moderator role.</td>
-                    <td>
-                      <code>p!addmodrole &lt;role&gt; &lt;permissionLevel&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Removemodrole</td>
-                    <td>Remove a moderator role.</td>
-                    <td>
-                      <code>p!removemodrole &lt;role&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Modifymodrole</td>
-                    <td>Edit a moderator role.</td>
-                    <td>
-                      <code>p!modifymodrole &lt;role&gt; &lt;permissionLevel&gt;</code>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 id="moderators">Moderators</h3>
-              <p>These commands only work for moderators (members with a permission level of 1 or higher)</p>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Command</th>
-                    <th>Description</th>
-                    <th>Usage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Ban</td>
-                    <td>Ban a member.</td>
-                    <td>
-                      <code>p!ban &lt;@member&gt; [reason]</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Clear</td>
-                    <td>Delete &xscr; amount of messages.</td>
-                    <td>
-                      <code>p!clear &lt;numberOfMessages&gt; [reason]</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kick</td>
-                    <td>Kick a member.</td>
-                    <td>
-                      <code>p!kick &lt;@member&gt; [reason]</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Mute</td>
-                    <td>Mute a member.</td>
-                    <td>
-                      <code>p!mute &lt;@member&gt; &lt;numberOfHours&gt; [reason]</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Quickpoll</td>
-                    <td>Make a quick poll (yes/no poll with reactions.)</td>
-                    <td>
-                      <code>p!qp &lt;pollName&gt;</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Softban</td>
-                    <td>Bans a member to delete their messages, then unbans them.</td>
-                    <td>
-                      <code>p!softban &lt;@member&gt; &lt;numberOfDays&gt; [reason]</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Unban</td>
-                    <td>Unban a member.</td>
-                    <td>
-                      <code>p!unban &lt;@member&gt; [reason]</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Unmute</td>
-                    <td>Unmute a member.</td>
-                    <td>
-                      <code>p!unmute &lt;@member&gt; [reason]</code>
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
-
-            </div>
-          </div>
-          <footer>
-
-            <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-
-
-              <a href="../setup/" class="btn btn-neutral" title="Setup">
-                <span class="icon icon-circle-arrow-left"></span> Previous</a>
-
-            </div>
-
-
-            <hr/>
-
-            <div role="contentinfo">
-              <!-- Copyright etc -->
-
-            </div>
-
-            Built with
-            <a href="http://www.mkdocs.org">MkDocs</a> using a
-            <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by
-            <a href="https://readthedocs.org">Read the Docs</a>.
-          </footer>
-
+            <a class="navbar-brand" href="..">Pixel</a>
         </div>
-      </div>
 
-    </section>
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Index</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../setup/">Setup</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Commands</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../downloads/">Downloads</a>
+                    </li>
+                
+                
+                </ul>
 
-  </div>
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../setup/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../downloads/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/LumiteDubbz/Pixel/edit/master/docs/commands.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#todo">TODO</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
 
-      <a href="https://github.com/LumiteDubbz/Pixel" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+<h1 id="todo">TODO</h1></div>
+        
+    </div>
 
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
 
-      <span>
-        <a href="../setup/" style="color: #fcfcfc;">&laquo; Previous</a>
-      </span>
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../search/require.js"></script>
+    <script src="../search/search.js"></script>
 
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </span>
-  </div>
-  <script src="../js/theme.js"></script>
-
-</body>
+    </body>
 
 </html>

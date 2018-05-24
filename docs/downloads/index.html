@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <link rel="shortcut icon" href="../img/favicon.ico">
 
-    <title>Setup - Pixel</title>
+    <title>Downloads - Pixel</title>
 
     <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -69,8 +69,8 @@
                 
                 
                 
-                    <li class="active">
-                        <a href="./">Setup</a>
+                    <li >
+                        <a href="../setup/">Setup</a>
                     </li>
                 
                 
@@ -81,8 +81,8 @@
                 
                 
                 
-                    <li >
-                        <a href="../downloads/">Downloads</a>
+                    <li class="active">
+                        <a href="./">Downloads</a>
                     </li>
                 
                 
@@ -95,17 +95,17 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="..">
+                        <a rel="next" href="../commands/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../commands/">
+                    <li class="disabled">
+                        <a rel="prev" >
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/LumiteDubbz/Pixel/edit/master/docs/setup.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/LumiteDubbz/Pixel/edit/master/docs/downloads.md"><i class="fa fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -116,20 +116,12 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#setup-guide">Setup guide</a></li>
+        <li class="first-level active"><a href="#todo">TODO</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="setup-guide">Setup guide</h1>
-<ol>
-<li>Clone the repository: <code>git clone https://github.com/LumiteDubbz/Pixel</code>.</li>
-<li>Open the folder, once unzipped, in a code editor of your choice, I use <a href="https://code.visualstudio.com/" title="VS Code's homepage.">Visual Studio Code</a>.</li>
-<li>Open the <code>credentials_example.json</code> file and rename it to <code>credentials.json</code>. Now, edit this and replace the pseudo credentials with the correct details.</li>
-<li>Here's the tricky part, go to <a href="https://mlab.com">mlab.com</a> and register an account on the "free" tier. Create a database. Once it is created, go to the database and click <code>users</code>. Click <code>create new user</code> and name it something memorable like "admin". Add a super secure password and <strong>DO NOT</strong> click "view only" as that will prevent the bot from being able to edit and create files. Edit the <code>credentials.json</code> file to make it suit your database, for example: <code>mongodb://admin:s3cur3_p455w0rd@fg187251.mlab.com:94294/super-cool-bot"</code>.</li>
-<li>Open the Terminal, change directory into the location of the repository clone, for example: <code>cd Documents/GitHub/Pixel</code>.</li>
-<li>Start the bot: <code>npm start</code> <em>or</em> <code>node src/app.js</code> (longer to type, faster to run the bot.)</li>
-</ol></div>
+<h1 id="todo">TODO</h1></div>
         
     </div>
 

@@ -1,0 +1,69 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Pixel\n\n\n\n\nFull documentation \nhere\n.\n\n\n\n\nAn open-source \nDiscord bot\n, written with: Library: \nDiscord.js\n, Framework: \nPatron.js\n.\n\n\nGetting started\n\n\n\n\nInstall \nNode.js\n and \nGit\n for your OS.\nMore detailed setup is available on the full setup documentation \nhere\n.\n\n\n\n\n\n\nClone this repository: \ngit clone https://github.com/LumiteDubbz/Pixel\n.\n\n\nOpen the folder, once unzipped, in a code editor of your choice, I use \nVisual Studio Code\n.\n\n\nOpen the \ncredentials_example.json\n file and rename it to \ncredentials.json\n. Now, edit this and replace the pseudo credentials with the correct details.\n\n\nOpen the Terminal, change directory into the location of the repository clone, for example: \ncd Documents/GitHub/Pixel\n.\n\n\nStart the bot: \nnpm start\n \nor\n \nnode src/app.js\n (longer to type, faster to run the bot.)\n\n\n\n\nFeatures\n\n\n\n\nThe shit Pixel can do.\n\n\n\n\n\n\nAdvanced moderation commands.\n\n\nCustomisable administration commands, such as welcome messages.\n\n\nServer-sided and global XP and level up system, offering skill points as rewards.\n\n\nSaid 'skill points' can be used to upgrade the user's skills such as fighting, magic and more!\n\n\nPowerful auto-moderation features than can be enabled and disabled.\n\n\nNSFW commands \ud83d\ude08\n\n\nSimple utility commands like auto-role.\n\n\nEasily editable code to your personal preference.\n\n\nReadable code.\n\n\nWritten in a modern language that is easy to pick up on.\n\n\n\n\nContributing\n\n\n\n\nPull requests will be closed if they do not follow the code of conduct.\n\n\n\n\nPlease refer to the \ncontributing code of conduct file\n to learn what to do with your contribution.\n\n\nSupport\n\n\n\n\nHeY tHe BoT iS bRoKeN hElP mEeEeE1!1!\n\n\n\n\nSupport can be given in the Pixel server, which you can join \nhere\n.\n\n\nAbout this release of Pixel.\n\n\n\n\nPixel version 0.0.1a.\n\n\n\n\n\n\nThis branch, the rewrite branch, is @ v0.0.1a as I am yet to start writing anything.", 
+            "title": "Index"
+        }, 
+        {
+            "location": "/#pixel", 
+            "text": "Full documentation  here .   An open-source  Discord bot , written with: Library:  Discord.js , Framework:  Patron.js .", 
+            "title": "Pixel"
+        }, 
+        {
+            "location": "/#getting-started", 
+            "text": "Install  Node.js  and  Git  for your OS.\nMore detailed setup is available on the full setup documentation  here .    Clone this repository:  git clone https://github.com/LumiteDubbz/Pixel .  Open the folder, once unzipped, in a code editor of your choice, I use  Visual Studio Code .  Open the  credentials_example.json  file and rename it to  credentials.json . Now, edit this and replace the pseudo credentials with the correct details.  Open the Terminal, change directory into the location of the repository clone, for example:  cd Documents/GitHub/Pixel .  Start the bot:  npm start   or   node src/app.js  (longer to type, faster to run the bot.)", 
+            "title": "Getting started"
+        }, 
+        {
+            "location": "/#features", 
+            "text": "The shit Pixel can do.    Advanced moderation commands.  Customisable administration commands, such as welcome messages.  Server-sided and global XP and level up system, offering skill points as rewards.  Said 'skill points' can be used to upgrade the user's skills such as fighting, magic and more!  Powerful auto-moderation features than can be enabled and disabled.  NSFW commands \ud83d\ude08  Simple utility commands like auto-role.  Easily editable code to your personal preference.  Readable code.  Written in a modern language that is easy to pick up on.", 
+            "title": "Features"
+        }, 
+        {
+            "location": "/#contributing", 
+            "text": "Pull requests will be closed if they do not follow the code of conduct.   Please refer to the  contributing code of conduct file  to learn what to do with your contribution.", 
+            "title": "Contributing"
+        }, 
+        {
+            "location": "/#support", 
+            "text": "HeY tHe BoT iS bRoKeN hElP mEeEeE1!1!   Support can be given in the Pixel server, which you can join  here .", 
+            "title": "Support"
+        }, 
+        {
+            "location": "/#about-this-release-of-pixel", 
+            "text": "Pixel version 0.0.1a.    This branch, the rewrite branch, is @ v0.0.1a as I am yet to start writing anything.", 
+            "title": "About this release of Pixel."
+        }, 
+        {
+            "location": "/setup/", 
+            "text": "Setup guide\n\n\n\n\nClone the repository: \ngit clone https://github.com/LumiteDubbz/Pixel\n.\n\n\nOpen the folder, once unzipped, in a code editor of your choice, I use \nVisual Studio Code\n.\n\n\nOpen the \ncredentials_example.json\n file and rename it to \ncredentials.json\n. Now, edit this and replace the pseudo credentials with the correct details.\n\n\nHere's the tricky part, go to \nmlab.com\n and register an account on the \"free\" tier. Create a database. Once it is created, go to the database and click \nusers\n. Click \ncreate new user\n and name it something memorable like \"admin\". Add a super secure password and \nDO NOT\n click \"view only\" as that will prevent the bot from being able to edit and create files. Edit the \ncredentials.json\n file to make it suit your database, for example: \nmongodb://admin:s3cur3_p455w0rd@fg187251.mlab.com:94294/super-cool-bot\"\n.\n\n\nOpen the Terminal, change directory into the location of the repository clone, for example: \ncd Documents/GitHub/Pixel\n.\n\n\nStart the bot: \nnpm start\n \nor\n \nnode src/app.js\n (longer to type, faster to run the bot.)", 
+            "title": "Setup"
+        }, 
+        {
+            "location": "/setup/#setup-guide", 
+            "text": "Clone the repository:  git clone https://github.com/LumiteDubbz/Pixel .  Open the folder, once unzipped, in a code editor of your choice, I use  Visual Studio Code .  Open the  credentials_example.json  file and rename it to  credentials.json . Now, edit this and replace the pseudo credentials with the correct details.  Here's the tricky part, go to  mlab.com  and register an account on the \"free\" tier. Create a database. Once it is created, go to the database and click  users . Click  create new user  and name it something memorable like \"admin\". Add a super secure password and  DO NOT  click \"view only\" as that will prevent the bot from being able to edit and create files. Edit the  credentials.json  file to make it suit your database, for example:  mongodb://admin:s3cur3_p455w0rd@fg187251.mlab.com:94294/super-cool-bot\" .  Open the Terminal, change directory into the location of the repository clone, for example:  cd Documents/GitHub/Pixel .  Start the bot:  npm start   or   node src/app.js  (longer to type, faster to run the bot.)", 
+            "title": "Setup guide"
+        }, 
+        {
+            "location": "/commands/", 
+            "text": "TODO", 
+            "title": "Commands"
+        }, 
+        {
+            "location": "/commands/#todo", 
+            "text": "", 
+            "title": "TODO"
+        }, 
+        {
+            "location": "/downloads/", 
+            "text": "TODO", 
+            "title": "Downloads"
+        }, 
+        {
+            "location": "/downloads/#todo", 
+            "text": "", 
+            "title": "TODO"
+        }
+    ]
+}

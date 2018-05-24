@@ -1,6 +1,6 @@
 # Note
-- The [master branch](https://github.com/LumiteDubbz/Pixel/branch/master/) is fully completed and will only recieve updates that continue to allow the code to actually run.
-- This branch will be actively developed.
+- This branch is fully completed and will only recieve updates that continue to allow the code to actually run.
+- The [rewrite](https://github.com/LumiteDubbz/Pixel/branch/master/) will be actively developed.
 
 ## Pixel [![Guild](https://discordapp.com/api/guilds/384419408111730689/embed.png)](https://discord.me/pixelsupport) [![Dependencies](https://david-dm.org/LumiteDubbz/Pixel.svg)](https://david-dm.org/LumiteDubbz/Pixel) [![Optional Dependencies](https://david-dm.org/LumiteDubbz/Pixel/optional-status.svg)](https://david-dm.org/LumiteDubbz/Pixel?type=optional)
 An open-source **Discord bot**, written with: Library: **Discord.js**, Framework: **Patron.js**<br>Full documentation <a href="https://pixel.js.org" target="_blank">here</a>.
